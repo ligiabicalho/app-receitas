@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { saveUserEmail } from '../services/localStorage';
 
-function Login() {
+export default function Login() {
+  const [login, setLogin] = useState({
+    isDisabled: true,
+    email: '',
+    password: '',
+  });
+
+  useEffect(() => {
+    const verifyField = () => {
+      const regex = /\S+@\S+\.\S+/;
+      const verifyEmail = regex.test(login.email);
+      const passwordMinLen = 6;
+      const verifyPassword = login.password.length > passwordMinLen;
+      setLogin((prevState) => (
+        { ...prevState, isDisabled: !(verifyEmail && verifyPassword) }));
+    };
+
+    verifyField();
+  }, [login.email, login.password]);
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setLogin((prevState) => ({ ...prevState, [name]: value }));
+  };
+
   return (
     <div className="login-page">
       <h1>Recipes App</h1>
@@ -11,9 +36,9 @@ function Login() {
             id="email"
             name="email"
             type="email"
-            // value={ email }
+            value={ login.email }
             data-testid="email-input"
-            // onChange={ handleChange }
+            onChange={ handleChange }
             required
           />
         </label>
@@ -24,9 +49,9 @@ function Login() {
             id="password"
             name="password"
             type="password"
-            // value={ password }
+            value={ login.password }
             data-testid="password-input"
-            // onChange={ handleChange }
+            onChange={ handleChange }
             required
           />
         </label>
@@ -34,8 +59,8 @@ function Login() {
         <button
           type="button"
           data-testid="login-submit-btn"
-          // disabled={ disable }
-          // onClick={ handleClick }
+          disabled={ login.isDisabled }
+          onClick={ () => saveUserEmail(login.email) }
         >
           Enter
         </button>
@@ -43,5 +68,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
