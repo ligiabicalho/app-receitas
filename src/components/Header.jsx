@@ -1,13 +1,23 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProfilePicture from '../images/profileIcon.svg';
 import SearchIcon from '../images/searchIcon.svg';
 
 function Header({ title }) {
+  const [inputOn, setInputOn] = useState(false);
   const history = useHistory();
+
   const handleClick = () => {
     history.push('/profile');
+  };
+
+  const handleBtnClick = () => {
+    if (inputOn === true) {
+      setInputOn(false);
+    } else {
+      setInputOn(true);
+    }
   };
 
   return (
@@ -22,12 +32,22 @@ function Header({ title }) {
       </button>
       { ((title === 'Meals' || title === 'Drinks')
         ? (
-          <img
-            src={ SearchIcon }
-            alt="ícone de pesquisa"
-            data-testid="search-top-btn"
-          />)
+          <button onClick={ handleBtnClick } type="button">
+            <img
+              src={ SearchIcon }
+              alt="ícone de pesquisa"
+              data-testid="search-top-btn"
+            />
+          </button>
+        )
         : '') }
+      { inputOn === true
+        ? (
+          <input
+            type="text"
+            data-testid="search-input"
+          />)
+        : '' }
     </header>
   );
 }
