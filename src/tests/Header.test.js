@@ -8,6 +8,7 @@ import RenderWithRouter from './helpers/RenderWithRouter';
 import Profile from '../components/Profile';
 
 describe('Testa o componente Header', () => {
+  const seachId = 'search-top-btn';
   test('se o componente Header é renderizado na página de login', () => {
     RenderWithRouter(<App />);
     const title = screen.queryByTestId('page-title');
@@ -18,7 +19,7 @@ describe('Testa o componente Header', () => {
     RenderWithRouter(<Meals />);
     const meals = screen.getByText(/meals/i);
     const profilePic = screen.getByTestId('profile-top-btn');
-    const searchIcon = screen.getByTestId('search-top-btn');
+    const searchIcon = screen.getByTestId(seachId);
     const input = screen.queryByTestId('search-input');
 
     expect(meals).toBeInTheDocument();
@@ -46,14 +47,14 @@ describe('Testa o componente Header', () => {
   test('se na página "/drinks", o Header e seus elementos são renderizados', () => {
     RenderWithRouter(<Drinks />);
     const drinks = screen.getByText(/drinks/i);
-    const searchIcon = screen.queryByTestId('search-top-btn');
+    const searchIcon = screen.queryByTestId(seachId);
     expect(drinks).toBeInTheDocument();
     expect(searchIcon).toBeInTheDocument();
   });
   test('se na página "/profile", o Header e seus elementos são renderizados', () => {
     RenderWithRouter(<Profile />);
     const profile = screen.getByText(/profile/i);
-    const searchIcon = screen.queryByTestId('search-top-btn');
+    const searchIcon = screen.queryByTestId(seachId);
     expect(profile).toBeInTheDocument();
     expect(searchIcon).not.toBeInTheDocument();
   });
