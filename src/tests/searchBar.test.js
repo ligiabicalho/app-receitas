@@ -1,32 +1,46 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWith';
-import AppContext from '../context/AppProvider';
+import AppProvider from '../context/AppProvider';
 import Meals from '../components/Meals';
-import Drinks from '../components/Drinks';
+// import Drinks from '../components/Drinks';
 
 describe('testando component searchBar', () => {
   test('testa se a barra e os radios estão na tela', async () => {
-    renderWithRouter(<Meals />)
-    const input = screen.queryByTestId('search-input');
-    const ingredientRadio = screen.queryByTestId('ingredient-radio');
-    const nameRadio = screen.queryByTestId('name-radio')
-    const oneLetterRadio = screen.queryByTestId('first-radio')
-    const searchIcon = screen.getByTestId('search-top-btn');
+    renderWithRouter(
+      <AppProvider>
+        <Meals />
+      </AppProvider>,
+    );
 
-    expect(ingredientRadio).not.toBeInTheDocument();
-    expect(input).not.toBeInTheDocument();
-    expect(nameRadio).not.toBeInTheDocument();
-    expect(oneLetterRadio).not.toBeInTheDocument();
+    const searchIcon = screen.getByTestId('search-top-btn');
+    expect(searchIcon).toBeInTheDocument();
 
     userEvent.click(searchIcon);
+
+    const input = screen.getByTestId('search-input');
+    const radioIngredients = screen.getByTestId('ingredient-search-radio');
+    const radioName = screen.getByTestId('name-search-radio');
+    const radioLetter = screen.getByTestId('first-letter-search-radio');
+    const submitButton = screen.getByTestId('exec-search-btn');
+
+    expect(input).toBeInTheDocument();
+    expect(radioIngredients).toBeInTheDocument();
+    expect(radioName).toBeInTheDocument();
+    expect(radioLetter).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
+
+    // const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+    jest.spyOn(global, 'alert');
+    global.alert.mockImplementation(() => {});
+
     userEvent.type(input, 'egg');
-    userEvent.click(ingredientRadio)
+    userEvent.click(radioLetter);
+    userEvent.click(submitButton);
+
     await waitFor(() => {
-      expect(screen.getByTestId('search-input')).toBeInTheDocument();
-      expect(ingredientRadio).toBeInTheDocument();
-      expect(nameRadio).toBeInTheDocument();
-      expect(oneLetterRadio).toBeInTheDocument();
+      expect(global.alert).toBeCalled();
     });
   });
 });
