@@ -66,3 +66,10 @@
     transform: rotate(-10deg);
   }
 }
+
+.footer {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
