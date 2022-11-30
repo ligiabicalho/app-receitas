@@ -11,16 +11,21 @@ function Meals() {
     <div>
       <Header title="Meals" />
       <section>
-        { meals.length > 0 && meals.filter(
-          (m, i) => i <= mealsIndex,
-        ).map((m, i) => (
-          <div
-            key={ m.idMeal }
-            data-testid={ `${i}-recipe-card` }
-          >
-            {m.strMeal}
-            <img data-testid={`${index}-card-img`} src={meal.strMealThumb}>
-          </div>
+        { meals.length > 0 && meals.map((m, i) => (
+          i <= mealsIndex
+          && (
+            <div
+              key={ m.idMeal }
+              data-testid={ `${i}-recipe-card` }
+            >
+              <p data-testid={ `${i}-card-name` }>{m.strMeal}</p>
+              <img
+                data-testid={ `${i}-card-img` }
+                src={ m.strMealThumb }
+                alt={ m.strMeal }
+              />
+            </div>
+          )
         ))}
       </section>
     </div>

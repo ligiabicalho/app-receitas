@@ -9,18 +9,21 @@ function Drinks() {
     <div>
       <Header title="Drinks" />
       <section>
-        {drinks.length > 0 && drinks.filter((m, i) => i <= eleven).map((m, i) => (
-          <div
-            key={ m.idDrink }
-            data-testid={ `${i}recipe-card` }
-          >
-            <img
-              data-testid={ `${index}-card-img` }
-              src={ m.strDrinkThumb }
-              alt={ `${index}-card-name` }
-            />
-            <p data-testid={ `${index}-card-name` }>{m.strDrink}</p>
-          </div>
+        {drinks.length > 0 && drinks.map((d, i) => (
+          i <= eleven
+          && (
+            <div
+              key={ d.idDrink }
+              data-testid={ `${i}-recipe-card` }
+            >
+              <img
+                data-testid={ `${i}-card-img` }
+                src={ d.strDrinkThumb }
+                alt={ `${i}-card-name` }
+              />
+              <p data-testid={ `${i}-card-name` }>{d.strDrink}</p>
+            </div>
+          )
         ))}
       </section>
     </div>
