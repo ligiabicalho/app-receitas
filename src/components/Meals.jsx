@@ -19,6 +19,7 @@ function Meals() {
             data-testid={ `${i}-recipe-card` }
           >
             {m.strMeal}
+            <img data-testid={`${index}-card-img`} src={meal.strMealThumb}>
           </div>
         ))}
       </section>

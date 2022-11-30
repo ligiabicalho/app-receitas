@@ -14,7 +14,12 @@ function Drinks() {
             key={ m.idDrink }
             data-testid={ `${i}recipe-card` }
           >
-            {m.strDrink}
+            <img
+              data-testid={ `${index}-card-img` }
+              src={ m.strDrinkThumb }
+              alt={ `${index}-card-name` }
+            />
+            <p data-testid={ `${index}-card-name` }>{m.strDrink}</p>
           </div>
         ))}
       </section>
