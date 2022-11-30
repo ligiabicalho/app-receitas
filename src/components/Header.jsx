@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProfilePicture from '../images/profileIcon.svg';
 import SearchIcon from '../images/searchIcon.svg';
+import SearchBar from './SearchBar';
 
 function Header({ title }) {
   const [inputOn, setInputOn] = useState(false);
@@ -43,10 +44,7 @@ function Header({ title }) {
         : '') }
       { inputOn === true
         ? (
-          <input
-            type="text"
-            data-testid="search-input"
-          />)
+          <SearchBar />)
         : '' }
     </header>
   );
