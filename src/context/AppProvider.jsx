@@ -1,12 +1,15 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { drinksFetch, mealsFetch } from '../services/requestAPI';
 import AppContext from './AppContext';
 import { fetchIngredients, fetchName, fetchFirstLetter } from '../services/fetchAPI';
 
 function AppProvider({ children }) {
+  const [drinks, setDrinks] = useState({});
   const [search, setSearch] = useState('');
   const [searchRadio, setSearchRadio] = useState('');
   const [recipes, setRecipes] = useState({});
+  const [meals, setMeals] = useState({});
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -27,13 +30,26 @@ function AppProvider({ children }) {
     fetchAPI();
   }, [search, searchRadio]);
 
+  useEffect(() => {
+    drinksFetch().then((result) => {
+      setDrinks(result);
+    });
+  }, []);
+  useEffect(() => {
+    mealsFetch().then((result) => {
+      setMeals(result);
+    });
+  }, []);
+
   const values = useMemo(() => ({
     search,
     setSearch,
     searchRadio,
     setSearchRadio,
     recipes,
-  }), [search, searchRadio, recipes]);
+    drinks,
+    meals,
+  }), [drinks, meals, search, searchRadio, recipes]);
 
   return (
     <AppContext.Provider value={ values }>
