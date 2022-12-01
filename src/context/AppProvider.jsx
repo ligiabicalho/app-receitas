@@ -11,30 +11,39 @@ import { fetchIngredients, fetchName, fetchFirstLetter } from '../services/fetch
 
 function AppProvider({ children }) {
   const [drinks, setDrinks] = useState({});
+  const [meals, setMeals] = useState({});
   const [search, setSearch] = useState('');
   const [searchRadio, setSearchRadio] = useState('');
-  const [recipes, setRecipes] = useState({});
-  const [meals, setMeals] = useState({});
   const [mealCathegory, setMealCathegory] = useState([]);
   const [drinkCathegory, setDrinkCathegory] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
-    const fetchAPI = async () => {
-      let resultRecipe = [];
+    const fetchSearchMeals = async () => {
       if (searchRadio === 'ingredient-radio') {
-        resultRecipe = await fetchIngredients(search, location);
+        setMeals(await fetchIngredients(search, location));
       }
       if (searchRadio === 'name-radio') {
-        resultRecipe = await fetchName(search, location);
+        setMeals(await fetchName(search, location));
       }
-      if (searchRadio === 'first-radio') {
-        resultRecipe = await fetchFirstLetter(search, location);
+      if (searchRadio === 'first-radio' && search.length === 1) {
+        setMeals(await fetchFirstLetter(search, location));
       }
-      console.log('resultRecipe', resultRecipe);
-      setRecipes(resultRecipe);
     };
-    fetchAPI();
+    const fetchSearchDrink = async () => {
+      if (searchRadio === 'ingredient-radio') {
+        setDrinks(await fetchIngredients(search, location));
+      }
+      if (searchRadio === 'name-radio') {
+        setDrinks(await fetchName(search, location));
+      }
+      if (searchRadio === 'first-radio' && search.length === 1) {
+        setDrinks(await fetchFirstLetter(search, location));
+      }
+    };
+
+    fetchSearchMeals();
+    fetchSearchDrink();
   }, [search, searchRadio, location]);
 
   useEffect(() => {
@@ -61,7 +70,6 @@ function AppProvider({ children }) {
       setSearch,
       searchRadio,
       setSearchRadio,
-      recipes,
       drinks,
       meals,
       drinkCathegory,
@@ -74,7 +82,7 @@ function AppProvider({ children }) {
       meals,
       search,
       searchRadio,
-      recipes, drinkCathegory, mealCathegory, setDrinks, setMeals],
+      drinkCathegory, mealCathegory],
   );
 
   return (
