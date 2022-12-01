@@ -15,12 +15,22 @@ function BtnFilter() {
     setButtonAll(true);
     const filtered = await fetchFilteredMeal(target.innerHTML);
     await setMeals(filtered);
+    if (buttonAll === true) {
+      const all = await mealsFetch();
+      await setMeals(all);
+      setButtonAll(false);
+    }
   };
 
   const handleDrinkClick = async ({ target }) => {
     setButtonAll(true);
     const filtered = await fetchFilteredDrink(target.innerHTML);
     await setDrinks(filtered);
+    if (buttonAll === true) {
+      const all = await drinksFetch();
+      await setDrinks(all);
+      setButtonAll(false);
+    }
   };
 
   const handleAllDrink = async () => {
