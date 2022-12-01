@@ -6,17 +6,18 @@ import Meals from '../components/Meals';
 import Drinks from '../components/Drinks';
 import RenderWithRouter from './helpers/RenderWithRouter';
 import Profile from '../components/Profile';
+import AppProvider from '../context/AppProvider';
 
 describe('Testa o componente Header', () => {
   const seachId = 'search-top-btn';
   test('se o componente Header é renderizado na página de login', () => {
-    RenderWithRouter(<App />);
+    RenderWithRouter(<AppProvider><App /></AppProvider>);
     const title = screen.queryByTestId('page-title');
     expect(title).not.toBeInTheDocument();
   });
 
   test('se na página "/meals", o Header e seus elementos são renderizados', async () => {
-    RenderWithRouter(<Meals />);
+    RenderWithRouter(<AppProvider><Meals /></AppProvider>);
     const meals = screen.getByText(/meals/i);
     const profilePic = screen.getByTestId('profile-top-btn');
     const searchIcon = screen.getByTestId(seachId);
@@ -38,7 +39,7 @@ describe('Testa o componente Header', () => {
     });
   });
   test('se ao clicar no botão profile, é redirecionado para a rota "/profile"', () => {
-    const { history } = RenderWithRouter(<Meals />);
+    const { history } = RenderWithRouter(<AppProvider><Meals /></AppProvider>);
     const profilePic = screen.getByTestId('profile-top-btn');
     userEvent.click(profilePic);
     const { pathname } = history.location;
