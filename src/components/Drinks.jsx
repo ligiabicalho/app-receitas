@@ -9,7 +9,6 @@ function Drinks() {
   const eleven = 11;
   return (
     <div>
-
       <Header title="Drinks" />
       <BtnFilter />
       <section>
@@ -20,12 +19,12 @@ function Drinks() {
               key={ d.idDrink }
               data-testid={ `${i}-recipe-card` }
             >
+              <p data-testid={ `${i}-card-name` }>{d.strDrink}</p>
               <img
                 data-testid={ `${i}-card-img` }
                 src={ d.strDrinkThumb }
                 alt={ `${i}-card-name` }
               />
-              <p data-testid={ `${i}-card-name` }>{d.strDrink}</p>
             </div>
           )
         ))}
