@@ -55,17 +55,27 @@ function AppProvider({ children }) {
     });
   }, []);
 
-  const values = useMemo(() => ({
-    search,
-    setSearch,
-    searchRadio,
-    setSearchRadio,
-    recipes,
-    drinks,
-    meals,
-    drinkCathegory,
-    mealCathegory,
-  }), [drinks, meals, search, searchRadio, recipes, drinkCathegory, mealCathegory]);
+  const values = useMemo(
+    () => ({
+      search,
+      setSearch,
+      searchRadio,
+      setSearchRadio,
+      recipes,
+      drinks,
+      meals,
+      drinkCathegory,
+      mealCathegory,
+      setMeals,
+      setDrinks,
+    }),
+    [
+      drinks,
+      meals,
+      search,
+      searchRadio,
+      recipes, drinkCathegory, mealCathegory, setDrinks, setMeals],
+  );
 
   return (
     <AppContext.Provider value={ values }>
