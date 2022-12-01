@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Footer from './Footer';
 import AppContext from '../context/AppContext';
 import Header from './Header';
+import BtnFilter from './BtnFilter';
 
 function Drinks() {
   const { drinks } = useContext(AppContext);
@@ -10,7 +11,7 @@ function Drinks() {
     <div>
 
       <Header title="Drinks" />
-
+      <BtnFilter />
       <section>
         {drinks.length > 0 && drinks.map((d, i) => (
           i <= eleven
