@@ -15,8 +15,8 @@ function AppProvider({ children }) {
   const [searchRadio, setSearchRadio] = useState('');
   const [recipes, setRecipes] = useState({});
   const [meals, setMeals] = useState({});
-  const [mealCathegory, setMealCathegory] = useState({});
-  const [drinkCathegory, setDrinkCathegory] = useState({});
+  const [mealCathegory, setMealCathegory] = useState([]);
+  const [drinkCathegory, setDrinkCathegory] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
