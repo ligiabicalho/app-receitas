@@ -1,23 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
 
 function SearchBar() {
-  // const [ text, setText ] = useState('');
-  const { search, setSearch, setSearchRadio } = useContext(AppContext);
+  const [radio, setRadio] = useState('');
+  const [text, setText] = useState('');
+  const { setSearch, setSearchRadio } = useContext(AppContext);
 
   const handleChange = ({ target }) => {
     const { value } = target;
-    setSearch(value);
+    setText(value);
   };
 
   const handleChangeRadio = ({ target }) => {
     const { id } = target;
-    setSearchRadio(id);
+    setRadio(id);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (search.length > 1) {
+    setSearch(text);
+    setSearchRadio(radio);
+    if (text.length > 1 && radio === 'first-radio') {
       global.alert('Your search must have only 1 (one) character');
     }
   };
@@ -29,7 +32,7 @@ function SearchBar() {
           id="seachBar"
           type="text"
           name="text"
-          value={ search }
+          value={ text }
           onChange={ handleChange }
           data-testid="search-input"
         />
