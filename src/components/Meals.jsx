@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import Header from './Header';
 import Footer from './Footer';
+import BtnFilter from './BtnFilter';
 
 function Meals() {
   const { meals } = useContext(AppContext);
@@ -11,6 +12,7 @@ function Meals() {
   return (
     <div>
       <Header title="Meals" />
+      <BtnFilter />
       <section>
         { meals.length > 0 && meals.map((m, i) => (
           i <= mealsIndex
