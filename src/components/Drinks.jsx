@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import AppContext from '../context/AppContext';
 import Header from './Header';
@@ -11,21 +12,23 @@ function Drinks() {
     <div>
       <Header title="Drinks" />
       <BtnFilter />
-      <section>
+      <section data-testid="drinks-div">
         {drinks.length > 0 && drinks.map((d, i) => (
           i <= eleven
           && (
-            <div
-              key={ d.idDrink }
-              data-testid={ `${i}-recipe-card` }
-            >
-              <p data-testid={ `${i}-card-name` }>{d.strDrink}</p>
-              <img
-                data-testid={ `${i}-card-img` }
-                src={ d.strDrinkThumb }
-                alt={ `${i}-card-name` }
-              />
-            </div>
+            <Link to={ `/drinks/${d.idDrink}` } data-testid={ `link-${i}` }>
+              <div
+                key={ d.idDrink }
+                data-testid={ `${i}-recipe-card` }
+              >
+                <img
+                  data-testid={ `${i}-card-img` }
+                  src={ d.strDrinkThumb }
+                  alt={ `${i}-card-name` }
+                />
+                <p data-testid={ `${i}-card-name` }>{d.strDrink}</p>
+              </div>
+            </Link>
           )
         ))}
       </section>
