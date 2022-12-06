@@ -20,46 +20,46 @@ function AppProvider({ children }) {
   const history = useHistory();
 
   const searchIngredients = async () => {
-    const recipe = await fetchIngredients(search, location);
-    if (recipe !== null) {
-      setMeals(recipe);
-      setDrinks(recipe);
+    const recipeIngredients = await fetchIngredients(search, location);
+    const alert = 'Sorry, we havent found any recipes for these filters.';
+    if (recipeIngredients !== null) {
+      setMeals(recipeIngredients);
+      setDrinks(recipeIngredients);
       setSearch('');
-      console.log('recipe', recipe);
-      if (recipe?.length === 1) {
+      if (recipeIngredients?.length === 1) {
         return location.pathname === '/meals'
-          ? history.push(`/meals/${recipe[0].idMeal}`)
-          : history.push(`/drinks/${recipe[0].idDrink}`);
+          ? history.push(`/meals/${recipeIngredients[0].idMeal}`)
+          : history.push(`/drinks/${recipeIngredients[0].idDrink}`);
       }
-    } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
+    } else global.alert(alert);
   };
 
   const searchName = async () => {
-    const recipe = await fetchName(search, location);
-    if (recipe !== null) {
-      setMeals(recipe);
-      setDrinks(recipe);
+    const recipeName = await fetchName(search, location);
+    if (recipeName !== null) {
+      setMeals(recipeName);
+      setDrinks(recipeName);
       setSearch('');
-      console.log('recipe', recipe);
-      if (recipe?.length === 1) {
+      console.log('recipeName', recipeName);
+      if (recipeName?.length === 1) {
         return location.pathname === '/meals'
-          ? history.push(`/meals/${recipe[0].idMeal}`)
-          : history.push(`/drinks/${recipe[0].idDrink}`);
+          ? history.push(`/meals/${recipeName[0].idMeal}`)
+          : history.push(`/drinks/${recipeName[0].idDrink}`);
       }
     } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
 
   const searchFirstLetter = async () => {
-    const recipe = await fetchFirstLetter(search, location);
-    if (recipe !== null) {
-      setMeals(recipe);
-      setDrinks(recipe);
+    const recipeFirst = await fetchFirstLetter(search, location);
+    if (recipeFirst !== null) {
+      setMeals(recipeFirst);
+      setDrinks(recipeFirst);
       setSearch('');
-      console.log('recipe', recipe);
-      if (recipe?.length === 1) {
+      console.log('recipeFirst', recipeFirst);
+      if (recipeFirst?.length === 1) {
         return location.pathname === '/meals'
-          ? history.push(`/meals/${recipe[0].idMeal}`)
-          : history.push(`/drinks/${recipe[0].idDrink}`);
+          ? history.push(`/meals/${recipeFirst[0].idMeal}`)
+          : history.push(`/drinks/${recipeFirst[0].idDrink}`);
       }
     } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
@@ -81,20 +81,8 @@ function AppProvider({ children }) {
         }
       }
     };
-    // const fetchSearchDrink = async () => {
-    //   if (searchRadio === 'ingredient-radio') {
-    //     setDrinks(await fetchIngredients(search, location));
-    //   }
-    //   if (searchRadio === 'name-radio') {
-    //     setDrinks(await fetchName(search, location));
-    //   }
-    //   if (searchRadio === 'first-radio' && search.length === 1) {
-    //     setDrinks(await fetchFirstLetter(search, location));
-    //   }
-    // };
 
     fetchSearch();
-    // fetchSearchDrink();
   }, [search, searchRadio, location, history]);
 
   useEffect(() => {
