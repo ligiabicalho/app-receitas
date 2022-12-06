@@ -9,7 +9,6 @@ function Drinks() {
   const eleven = 11;
   return (
     <div>
-
       <Header title="Drinks" />
       <BtnFilter />
       <section>

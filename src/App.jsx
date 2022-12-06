@@ -4,8 +4,6 @@ import './App.css';
 import AppProvider from './context/AppProvider';
 import Login from './pages/Login';
 import Recipes from './pages/Recipes';
-// import Meals from './components/Meals';
-// import Drinks from './components/Drinks';
 import Profile from './components/Profile';
 import DoneRecipes from './components/DoneRecipes';
 import FavoriteRecipes from './components/FavoriteRecipes';
@@ -16,8 +14,6 @@ function App() {
       <Route exact path="/" component={ Login } />
       <Route path="/meals" component={ Recipes } />
       <Route path="/drinks" component={ Recipes } />
-      {/* <Route path="/meals" component={ Meals } />
-      <Route path="/drinks" component={ Drinks } /> */}
       <Route path="/profile" component={ Profile } />
       <Route path="/done-recipes" component={ DoneRecipes } />
       <Route path="/favorite-recipes" component={ FavoriteRecipes } />
