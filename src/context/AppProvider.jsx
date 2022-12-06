@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   drinksFetch,
@@ -7,35 +7,43 @@ import {
   mealCathegoryFetch,
   drinkCathegoryFetch } from '../services/requestAPI';
 import AppContext from './AppContext';
-import { fetchIngredients, fetchName, fetchFirstLetter } from '../services/fetchAPI';
+import { searchIngredients,
+  searchName,
+  searchFirst } from '../services/searchResults';
 
 function AppProvider({ children }) {
-  const [drinks, setDrinks] = useState({});
+  const [drinks, setDrinks] = useState([]);
+  const [meals, setMeals] = useState([]);
   const [search, setSearch] = useState('');
   const [searchRadio, setSearchRadio] = useState('');
-  const [recipes, setRecipes] = useState({});
-  const [meals, setMeals] = useState({});
   const [mealCathegory, setMealCathegory] = useState([]);
   const [drinkCathegory, setDrinkCathegory] = useState([]);
-  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
-    const fetchAPI = async () => {
-      let resultRecipe = [];
-      if (searchRadio === 'ingredient-radio') {
-        resultRecipe = await fetchIngredients(search, location);
+    const fetchSearch = async () => {
+      if (search?.length > 0) {
+        switch (searchRadio) {
+        case 'ingredient-radio':
+          searchIngredients(history, search, setMeals, setDrinks);
+          setSearch('');
+          break;
+        case 'name-radio':
+          searchName(history, search, setMeals, setDrinks);
+          setSearch('');
+          break;
+        case 'first-radio':
+          return search.length === 1
+            && searchFirst(history, search, setMeals, setDrinks)
+            && setSearch('');
+        default:
+          console.log('default');
+        }
       }
-      if (searchRadio === 'name-radio') {
-        resultRecipe = await fetchName(search, location);
-      }
-      if (searchRadio === 'first-radio') {
-        resultRecipe = await fetchFirstLetter(search, location);
-      }
-      console.log('resultRecipe', resultRecipe);
-      setRecipes(resultRecipe);
     };
-    fetchAPI();
-  }, [search, searchRadio, location]);
+
+    fetchSearch();
+  }, [search, searchRadio, history]);
 
   useEffect(() => {
     drinksFetch().then((result) => {
@@ -61,7 +69,6 @@ function AppProvider({ children }) {
       setSearch,
       searchRadio,
       setSearchRadio,
-      recipes,
       drinks,
       meals,
       drinkCathegory,
@@ -74,7 +81,7 @@ function AppProvider({ children }) {
       meals,
       search,
       searchRadio,
-      recipes, drinkCathegory, mealCathegory, setDrinks, setMeals],
+      drinkCathegory, mealCathegory],
   );
 
   return (
