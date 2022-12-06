@@ -8,7 +8,8 @@ function Recipes() {
   const { pathname } = location;
   return (
     <div>
-      { pathname === '/meals' ? <Meals /> : <Drinks /> }
+      { pathname === '/meals' && <Meals /> }
+      { pathname === '/drinks' && <Drinks /> }
     </div>
   );
 }
