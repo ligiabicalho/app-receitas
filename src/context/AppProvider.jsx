@@ -10,8 +10,8 @@ import AppContext from './AppContext';
 import { fetchIngredients, fetchName, fetchFirstLetter } from '../services/fetchAPI';
 
 function AppProvider({ children }) {
-  const [drinks, setDrinks] = useState({});
-  const [meals, setMeals] = useState({});
+  const [drinks, setDrinks] = useState([]);
+  const [meals, setMeals] = useState([]);
   const [search, setSearch] = useState('');
   const [searchRadio, setSearchRadio] = useState('');
   const [mealCathegory, setMealCathegory] = useState([]);
@@ -36,9 +36,11 @@ function AppProvider({ children }) {
     setDrinks(recipe);
     setSearch('');
     console.log('recipe', recipe);
-    return (recipe.length === 1 && recipe[0].idMeal)
-      ? history.push(`/meals/${recipe[0].idMeal}`)
-      : history.push(`/drinks/${recipe[0].idDrink}`);
+    if (recipe?.length === 1) {
+      return location.pathname === '/meals'
+        ? history.push(`/meals/${recipe[0].idMeal}`)
+        : history.push(`/drinks/${recipe[0].idDrink}`);
+    }
   };
 
   const searchFirstLetter = async () => {
@@ -64,7 +66,6 @@ function AppProvider({ children }) {
           break;
         case 'first-radio':
           return search.length === 1 && searchFirstLetter();
-          // break;
         default:
           console.log('default');
         }

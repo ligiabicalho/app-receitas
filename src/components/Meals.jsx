@@ -8,14 +8,14 @@ function Meals() {
   const { meals } = useContext(AppContext);
 
   console.log(meals);
-  const mealsIndex = 11;
+  const eleven = 11;
   return (
     <div>
       <Header title="Meals" />
       <BtnFilter />
       <section>
         { meals.length > 0 && meals.map((m, i) => (
-          i <= mealsIndex
+          i <= eleven
           && (
             <div
               key={ m.idMeal }
