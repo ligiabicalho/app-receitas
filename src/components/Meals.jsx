@@ -12,7 +12,7 @@ function Meals() {
     <div>
       <Header title="Meals" />
       <BtnFilter />
-      <section>
+      <section data-testid="meals-div">
         { meals.length > 0 && meals.map((m, i) => (
           i <= mealsIndex
           && (

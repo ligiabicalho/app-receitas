@@ -10,14 +10,13 @@ function Drinks() {
   const eleven = 11;
   return (
     <div>
-
       <Header title="Drinks" />
       <BtnFilter />
-      <section>
+      <section data-testid="drinks-div">
         {drinks.length > 0 && drinks.map((d, i) => (
           i <= eleven
           && (
-            <Link to={ `/drinks/${d.idDrink}` }>
+            <Link to={ `/drinks/${d.idDrink}` } data-testid={ `link-${i}` }>
               <div
                 key={ d.idDrink }
                 data-testid={ `${i}-recipe-card` }
