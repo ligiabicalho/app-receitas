@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   drinksFetch,
@@ -17,34 +17,74 @@ function AppProvider({ children }) {
   const [mealCathegory, setMealCathegory] = useState([]);
   const [drinkCathegory, setDrinkCathegory] = useState([]);
   const location = useLocation();
+  const history = useHistory();
+
+  const searchIngredients = async () => {
+    const recipe = await fetchIngredients(search, location);
+    setMeals(recipe);
+    setDrinks(recipe);
+    setSearch('');
+    console.log('recipe', recipe);
+    return (recipe.length === 1 && recipe[0].idMeal)
+      ? history.push(`/meals/${recipe[0].idMeal}`)
+      : history.push(`/drinks/${recipe[0].idDrink}`);
+  };
+
+  const searchName = async () => {
+    const recipe = await fetchName(search, location);
+    setMeals(recipe);
+    setDrinks(recipe);
+    setSearch('');
+    console.log('recipe', recipe);
+    return (recipe.length === 1 && recipe[0].idMeal)
+      ? history.push(`/meals/${recipe[0].idMeal}`)
+      : history.push(`/drinks/${recipe[0].idDrink}`);
+  };
+
+  const searchFirstLetter = async () => {
+    const recipe = await fetchFirstLetter(search, location);
+    setMeals(recipe);
+    setDrinks(recipe);
+    setSearch('');
+    console.log('recipe', recipe);
+    return (recipe.length === 1 && recipe[0].idMeal)
+      ? history.push(`/meals/${recipe[0].idMeal}`)
+      : history.push(`/drinks/${recipe[0].idDrink}`);
+  };
 
   useEffect(() => {
-    const fetchSearchMeals = async () => {
-      if (searchRadio === 'ingredient-radio') {
-        setMeals(await fetchIngredients(search, location));
-      }
-      if (searchRadio === 'name-radio') {
-        setMeals(await fetchName(search, location));
-      }
-      if (searchRadio === 'first-radio' && search.length === 1) {
-        setMeals(await fetchFirstLetter(search, location));
-      }
-    };
-    const fetchSearchDrink = async () => {
-      if (searchRadio === 'ingredient-radio') {
-        setDrinks(await fetchIngredients(search, location));
-      }
-      if (searchRadio === 'name-radio') {
-        setDrinks(await fetchName(search, location));
-      }
-      if (searchRadio === 'first-radio' && search.length === 1) {
-        setDrinks(await fetchFirstLetter(search, location));
+    const fetchSearch = async () => {
+      if (search?.length > 0) {
+        switch (searchRadio) {
+        case 'ingredient-radio':
+          searchIngredients();
+          break;
+        case 'name-radio':
+          searchName();
+          break;
+        case 'first-radio':
+          return search.length === 1 && searchFirstLetter();
+          // break;
+        default:
+          console.log('default');
+        }
       }
     };
+    // const fetchSearchDrink = async () => {
+    //   if (searchRadio === 'ingredient-radio') {
+    //     setDrinks(await fetchIngredients(search, location));
+    //   }
+    //   if (searchRadio === 'name-radio') {
+    //     setDrinks(await fetchName(search, location));
+    //   }
+    //   if (searchRadio === 'first-radio' && search.length === 1) {
+    //     setDrinks(await fetchFirstLetter(search, location));
+    //   }
+    // };
 
-    fetchSearchMeals();
-    fetchSearchDrink();
-  }, [search, searchRadio, location]);
+    fetchSearch();
+    // fetchSearchDrink();
+  }, [search, searchRadio, location, history]);
 
   useEffect(() => {
     drinksFetch().then((result) => {
