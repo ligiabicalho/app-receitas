@@ -1,12 +1,12 @@
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWith';
 import AppProvider from '../context/AppProvider';
 import Meals from '../components/Meals';
-// import Drinks from '../components/Drinks';
+import Drinks from '../components/Drinks';
 
 describe('testando component searchBar', () => {
-  test('testa se a barra e os radios estão na tela', async () => {
+  it('testa se a barra e os radios estão na tela', async () => {
     renderWithRouter(
       <AppProvider>
         <Meals />
@@ -31,16 +31,34 @@ describe('testando component searchBar', () => {
     expect(submitButton).toBeInTheDocument();
 
     // const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
+  });
+  it('testa o filtro de primeira letra', () => {
+    renderWithRouter(
+      <AppProvider>
+        <Drinks />
+      </AppProvider>,
+    );
 
     jest.spyOn(global, 'alert');
     global.alert.mockImplementation(() => {});
+
+    const searchIcon = screen.getByTestId('search-top-btn');
+
+    userEvent.click(searchIcon);
+    const input = screen.getByTestId('search-input');
+    const radioLetter = screen.getByTestId('first-letter-search-radio');
+    const submitButton = screen.getByTestId('exec-search-btn');
+
+    userEvent.type(input, 'e');
+    userEvent.click(radioLetter);
+    userEvent.click(submitButton);
+
+    expect(global.alert).not.toBeCalled();
 
     userEvent.type(input, 'egg');
     userEvent.click(radioLetter);
     userEvent.click(submitButton);
 
-    await waitFor(() => {
-      expect(global.alert).toBeCalled();
-    });
+    expect(global.alert).toBeCalled();
   });
 });

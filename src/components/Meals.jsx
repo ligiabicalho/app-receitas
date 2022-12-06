@@ -7,14 +7,14 @@ import BtnFilter from './BtnFilter';
 
 function Meals() {
   const { meals } = useContext(AppContext);
-  const mealsIndex = 11;
+  const eleven = 11;
   return (
     <div>
       <Header title="Meals" />
       <BtnFilter />
       <section data-testid="meals-div">
         { meals.length > 0 && meals.map((m, i) => (
-          i <= mealsIndex
+          i <= eleven
           && (
             <Link to={ `/meals/${m.idMeal}` }>
               <div

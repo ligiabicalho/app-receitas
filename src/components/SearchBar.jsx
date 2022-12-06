@@ -76,7 +76,6 @@ function SearchBar() {
       <button
         type="submit"
         data-testid="exec-search-btn"
-        // onClick={on}
       >
         Search
       </button>
