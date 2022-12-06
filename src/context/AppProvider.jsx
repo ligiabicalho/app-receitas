@@ -21,37 +21,47 @@ function AppProvider({ children }) {
 
   const searchIngredients = async () => {
     const recipe = await fetchIngredients(search, location);
-    setMeals(recipe);
-    setDrinks(recipe);
-    setSearch('');
-    console.log('recipe', recipe);
-    return (recipe.length === 1 && recipe[0].idMeal)
-      ? history.push(`/meals/${recipe[0].idMeal}`)
-      : history.push(`/drinks/${recipe[0].idDrink}`);
+    if (recipe !== null) {
+      setMeals(recipe);
+      setDrinks(recipe);
+      setSearch('');
+      console.log('recipe', recipe);
+      if (recipe?.length === 1) {
+        return location.pathname === '/meals'
+          ? history.push(`/meals/${recipe[0].idMeal}`)
+          : history.push(`/drinks/${recipe[0].idDrink}`);
+      }
+    } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
 
   const searchName = async () => {
     const recipe = await fetchName(search, location);
-    setMeals(recipe);
-    setDrinks(recipe);
-    setSearch('');
-    console.log('recipe', recipe);
-    if (recipe?.length === 1) {
-      return location.pathname === '/meals'
-        ? history.push(`/meals/${recipe[0].idMeal}`)
-        : history.push(`/drinks/${recipe[0].idDrink}`);
-    }
+    if (recipe !== null) {
+      setMeals(recipe);
+      setDrinks(recipe);
+      setSearch('');
+      console.log('recipe', recipe);
+      if (recipe?.length === 1) {
+        return location.pathname === '/meals'
+          ? history.push(`/meals/${recipe[0].idMeal}`)
+          : history.push(`/drinks/${recipe[0].idDrink}`);
+      }
+    } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
 
   const searchFirstLetter = async () => {
     const recipe = await fetchFirstLetter(search, location);
-    setMeals(recipe);
-    setDrinks(recipe);
-    setSearch('');
-    console.log('recipe', recipe);
-    return (recipe.length === 1 && recipe[0].idMeal)
-      ? history.push(`/meals/${recipe[0].idMeal}`)
-      : history.push(`/drinks/${recipe[0].idDrink}`);
+    if (recipe !== null) {
+      setMeals(recipe);
+      setDrinks(recipe);
+      setSearch('');
+      console.log('recipe', recipe);
+      if (recipe?.length === 1) {
+        return location.pathname === '/meals'
+          ? history.push(`/meals/${recipe[0].idMeal}`)
+          : history.push(`/drinks/${recipe[0].idDrink}`);
+      }
+    } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
 
   useEffect(() => {

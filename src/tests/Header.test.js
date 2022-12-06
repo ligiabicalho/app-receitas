@@ -5,7 +5,7 @@ import App from '../App';
 import Meals from '../components/Meals';
 import Drinks from '../components/Drinks';
 import RenderWithRouter from './helpers/RenderWithRouter';
-import Profile from '../components/Profile';
+import Profile from '../pages/Profile';
 import AppProvider from '../context/AppProvider';
 
 describe('Testa o componente Header', () => {
@@ -46,14 +46,14 @@ describe('Testa o componente Header', () => {
     expect(pathname).toBe('/profile');
   });
   test('se na página "/drinks", o Header e seus elementos são renderizados', () => {
-    RenderWithRouter(<Drinks />);
+    RenderWithRouter(<AppProvider><Drinks /></AppProvider>);
     const drinks = screen.getByText(/drinks/i);
     const searchIcon = screen.queryByTestId(seachId);
     expect(drinks).toBeInTheDocument();
     expect(searchIcon).toBeInTheDocument();
   });
   test('se na página "/profile", o Header e seus elementos são renderizados', () => {
-    RenderWithRouter(<Profile />);
+    RenderWithRouter(<AppProvider><Profile /></AppProvider>);
     const profile = screen.getByText(/profile/i);
     const searchIcon = screen.queryByTestId(seachId);
     expect(profile).toBeInTheDocument();
