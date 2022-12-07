@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function Profile() {
   const [email, setEmail] = useState('');
+
   useEffect(() => {
     const userEmail = localStorage.getItem('user');
     const intEmail = JSON.parse(userEmail);
     setEmail(intEmail.email);
   }, []);
+
+  const history = useHistory();
+
+  const toDoneRecipes = () => {
+    history.push('/done-recipes');
+  };
 
   return (
     <div>
@@ -22,7 +30,7 @@ function Profile() {
         <button
           data-testid="profile-done-btn"
           type="button"
-          // onClick={}
+          onClick={ toDoneRecipes }
         >
           Done Recipes
         </button>
