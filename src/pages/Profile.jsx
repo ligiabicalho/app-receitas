@@ -18,6 +18,15 @@ function Profile() {
     history.push('/done-recipes');
   };
 
+  const toFavoriteRecipes = () => {
+    history.push('/favorite-recipes');
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push('/');
+  };
+
   return (
     <div>
       <Header title="Profile" />
@@ -37,14 +46,14 @@ function Profile() {
         <button
           data-testid="profile-favorite-btn"
           type="button"
-          // onClick={}
+          onClick={ toFavoriteRecipes }
         >
           Favorite Recipes
         </button>
         <button
           data-testid="profile-logout-btn"
           type="button"
-          // onClick={}
+          onClick={ handleLogout }
         >
           Logout
         </button>

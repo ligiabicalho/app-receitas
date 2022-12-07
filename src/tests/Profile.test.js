@@ -3,6 +3,8 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWith';
 import App from '../App';
+import Profile from '../pages/Profile';
+import AppProvider from '../context/AppProvider';
 
 describe('Testando se no componente Login...', () => {
   const ID_EMAIL = 'email-input';
@@ -36,5 +38,31 @@ describe('Testando se no componente Login...', () => {
       expect(favBtn).toBeInTheDocument();
       expect(LogoutBtn).toBeInTheDocument();
     });
+  });
+  test('rota do botão de Favorite Recipes', () => {
+    const { history } = renderWithRouter(<AppProvider><Profile /></AppProvider>);
+    const favBtn = screen.getByTestId('profile-favorite-btn');
+    userEvent.click(favBtn);
+    const { pathname } = history.location;
+
+    waitFor(() => expect(pathname).toBe('/favorite-recipes'));
+  });
+
+  test('rota do botão de Done Recipes', () => {
+    const { history } = renderWithRouter(<AppProvider><Profile /></AppProvider>);
+    const doneBtn = screen.getByTestId('profile-done-btn');
+    userEvent.click(doneBtn);
+    const { pathname } = history.location;
+
+    waitFor(() => expect(pathname).toBe('/done-recipes'));
+  });
+
+  test('rota do botão de Logout', () => {
+    const { history } = renderWithRouter(<AppProvider><Profile /></AppProvider>);
+    const logoutBtn = screen.getByTestId('profile-logout-btn');
+    userEvent.click(logoutBtn);
+    const { pathname } = history.location;
+
+    waitFor(() => expect(pathname).toBe('/'));
   });
 });
