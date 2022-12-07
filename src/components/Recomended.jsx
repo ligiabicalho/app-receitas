@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-
 import Carousel from 'nuka-carousel/lib/carousel';
 import AppContext from '../context/AppContext';
 
@@ -13,7 +12,6 @@ function Recomended(props) {
     console.log(meals);
     return (
       <Carousel
-        autoplay
         slidesToShow={ 2 }
         slidesToScroll={ 2 }
       >
@@ -22,11 +20,16 @@ function Recomended(props) {
           && (
             <>
               <img
-                data-testid="recommendation-card"
+                data-testid={ `${i}-recommendation-card` }
                 src={ d.strDrinkThumb }
-                alt={ `${i}-card-name` }
+                alt={ d.strDrink }
               />
-              <p data-testid={ `${i}-recommendation-title` }>{d.strDrink}</p>
+              <p
+                key={ d.idDrink }
+                data-testid={ `${i}-recommendation-title` }
+              >
+                {d.strDrink}
+              </p>
             </>
           )
         ))}
@@ -34,32 +37,32 @@ function Recomended(props) {
     );
   }
   if (par === 'drinks') {
-    console.log('entrou drinks');
-    console.log(drinks);
     return (
-      <section className="recomended-drinks">
+      <Carousel
+        slidesToShow={ 2 }
+        slidesToScroll={ 2 }
+      >
         { meals.length > 0 && meals.map((m, i) => (
           i <= number
           && (
-            <div
-              key={ m.idMeal }
-              data-testid={ `data-testid="${i}-recommendation-card` }
-            >
-              <p data-testid={ `${i}-recommendation-title` }>{m.strMeal}</p>
+            <>
               <img
-                className="recomended-drinks-img"
-                data-testid={ `${i}-card-img` }
+                data-testid={ `${i}-recommendation-card` }
                 src={ m.strMealThumb }
                 alt={ m.strMeal }
               />
-            </div>
+              <p
+                key={ m.idMeal }
+                data-testid={ `${i}-recommendation-title` }
+              >
+                {m.strMeal}
+              </p>
+            </>
           )
         ))}
-      </section>
+      </Carousel>
     );
   }
-  console.log('entrou em nenhunm');
-  console.log(par);
 }
 
 Recomended.propTypes = {
