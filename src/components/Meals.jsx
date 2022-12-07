@@ -16,10 +16,9 @@ function Meals() {
         { meals.length > 0 && meals.map((m, i) => (
           i <= eleven
           && (
-            <Link to={ `/meals/${m.idMeal}` }>
+            <Link key={ m.idMeal } to={ `/meals/${m.idMeal}` }>
               <div
                 data-testid={ `${i}-recipe-card` }
-                key={ m.idMeal }
               >
                 <p data-testid={ `${i}-card-name` }>{m.strMeal}</p>
                 <img

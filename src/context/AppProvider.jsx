@@ -18,6 +18,10 @@ function AppProvider({ children }) {
   const [searchRadio, setSearchRadio] = useState('');
   const [mealCathegory, setMealCathegory] = useState([]);
   const [drinkCathegory, setDrinkCathegory] = useState([]);
+  const [recipeIdState, setRecipeIdState] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [measures, setMeasures] = useState([]);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -75,8 +79,17 @@ function AppProvider({ children }) {
       mealCathegory,
       setMeals,
       setDrinks,
+      recipeIdState,
+      setRecipeIdState,
+      ingredients,
+      setIngredients,
+      measures,
+      setMeasures,
     }),
     [
+      recipeIdState,
+      ingredients,
+      measures,
       drinks,
       meals,
       search,
