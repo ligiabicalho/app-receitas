@@ -8,8 +8,10 @@ function Profile() {
 
   useEffect(() => {
     const userEmail = localStorage.getItem('user');
-    const intEmail = JSON.parse(userEmail);
-    setEmail(intEmail.email);
+    if (userEmail !== null) {
+      const intEmail = JSON.parse(userEmail);
+      setEmail(intEmail.email);
+    }
   }, []);
 
   const history = useHistory();
