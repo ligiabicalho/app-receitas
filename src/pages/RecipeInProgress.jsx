@@ -1,21 +1,21 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { useEffect, useContext } from 'react';
-import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
+import { useContext } from 'react';
+/* import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI'; */
 import Recomended from '../components/Recomended';
 import CardDetails from '../components/CardDetails';
 import AppContext from '../context/AppContext';
 
-function RecipeInProgress(props) {
-  const { match: { params: { id } } } = props;
+function RecipeInProgress(/* props */) {
+/*   const { match: { params: { id } } } = props; */
   const location = useLocation().pathname;
 
   const { recipeIdState,
     // setRecipeIdState,
     ingredients,
-    setIngredients,
+    /*     setIngredients, */
     measures,
-    setMeasures } = useContext(AppContext);
+    /*     setMeasures */ } = useContext(AppContext);
 
   // useEffect(() => {
   //   if (location.includes('meals')) {
