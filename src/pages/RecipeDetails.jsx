@@ -1,17 +1,20 @@
 import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useEffect, useContext, useState } from 'react';
+import copy from 'clipboard-copy';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import Recomended from '../components/Recomended';
 import CardDetails from '../components/CardDetails';
 import AppContext from '../context/AppContext';
 import { inProgress } from '../services/localStorage';
+import shareIcon from '../images/shareIcon.svg';
+import whiteHeart from '../images/whiteHeartIcon.svg';
 
 function RecipeDetails(props) {
   const { match: { params: { id } } } = props;
   const location = useLocation().pathname;
   const history = useHistory();
-  /*   const [progress, setProgress] = useState([]); */
+  const [copyState, setCopyState] = useState(false);
   const [startBtn, setStartBtn] = useState('Start');
 
   const { recipeIdState,
@@ -68,6 +71,7 @@ function RecipeDetails(props) {
     setMeasures(measuresArray);
   }, [recipeIdState]);
 
+  // Deixar essa parte comentada para funcionar o código no navegador. No cypress não da problema pois tem mock do storage. Req 30.
   useEffect(() => {
     if (inProgress()) {
       const inProgressJson = JSON.parse(inProgress());
@@ -99,8 +103,20 @@ function RecipeDetails(props) {
           {' '}
           Recipe
         </button>
-        <button data-testid="share-btn" type="button">Compartilhar</button>
-        <button data-testid="favorite-btn" type="button">Favoritar</button>
+        <button
+          data-testid="share-btn"
+          type="button"
+          onClick={ () => {
+            copy(window.location.href);
+            setCopyState(true);
+          } }
+        >
+          <img src={ shareIcon } alt="share button" />
+        </button>
+        <button data-testid="favorite-btn" type="button">
+          <img src={ whiteHeart } alt="favorite button" />
+        </button>
+        {copyState ? <p>Link copied!</p> : ''}
       </div>
     );
   }
@@ -125,8 +141,20 @@ function RecipeDetails(props) {
           {' '}
           Recipe
         </button>
-        <button data-testid="share-btn" type="button">Compartilhar</button>
-        <button data-testid="favorite-btn" type="button">Favoritar</button>
+        <button
+          data-testid="share-btn"
+          type="button"
+          onClick={ () => {
+            copy(window.location.href);
+            setCopyState(true);
+          } }
+        >
+          <img src={ shareIcon } alt="share button" />
+        </button>
+        <button data-testid="favorite-btn" type="button">
+          <img src={ whiteHeart } alt="favorite button" />
+        </button>
+        {copyState ? <p>Link copied!</p> : null}
       </div>
     );
   }
