@@ -19,13 +19,13 @@ function Recomended(props) {
             <Carousel.Item>
               <img
                 data-testid={ `${i}-recommendation-card` }
-                src={ d.strDrinkThumb }
-                alt={ d.strDrink }
+                src={ d?.strDrinkThumb }
+                alt={ d?.strDrink }
               />
               <img
                 data-testid={ `${i + anotherNumber}-recommendation-card` }
-                src={ drinks[i + anotherNumber].strDrinkThumb }
-                alt={ drinks[i + anotherNumber].strDrink }
+                src={ drinks[i + anotherNumber]?.strDrinkThumb }
+                alt={ drinks[i + anotherNumber]?.strDrink }
               />
               <Carousel.Caption>
                 <p
@@ -35,10 +35,10 @@ function Recomended(props) {
                   {d.strDrink}
                 </p>
                 <p
-                  key={ drinks[i + anotherNumber].idDrink }
+                  key={ drinks[i + anotherNumber]?.idDrink }
                   data-testid={ `${i + anotherNumber}-recommendation-title` }
                 >
-                  {drinks[i + anotherNumber].strDrink}
+                  {drinks[i + anotherNumber]?.strDrink}
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -56,26 +56,26 @@ function Recomended(props) {
             <Carousel.Item>
               <img
                 data-testid={ `${i}-recommendation-card` }
-                src={ m.strMealThumb }
-                alt={ m.strMeal }
+                src={ m?.strMealThumb }
+                alt={ m?.strMeal }
               />
               <img
                 data-testid={ `${i + anotherNumber}-recommendation-card` }
-                src={ meals[i + anotherNumber].strMealThumb }
-                alt={ meals[i + anotherNumber].strMeal }
+                src={ meals[i + anotherNumber]?.strMealThumb }
+                alt={ meals[i + anotherNumber]?.strMeal }
               />
               <Carousel.Caption>
                 <p
-                  key={ m.idMeal }
+                  key={ m?.idMeal }
                   data-testid={ `${i}-recommendation-title` }
                 >
-                  {m.strMeal}
+                  {m?.strMeal}
                 </p>
                 <p
-                  key={ meals[i + anotherNumber].idMeal }
+                  key={ meals[i + anotherNumber]?.idMeal }
                   data-testid={ `${i + anotherNumber}-recommendation-title` }
                 >
-                  {meals[i + anotherNumber].strMeal}
+                  {meals[i + anotherNumber]?.strMeal}
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
