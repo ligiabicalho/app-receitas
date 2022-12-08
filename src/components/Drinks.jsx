@@ -16,9 +16,12 @@ function Drinks() {
         {drinks.length > 0 && drinks.map((d, i) => (
           i <= eleven
           && (
-            <Link to={ `/drinks/${d.idDrink}` } data-testid={ `link-${i}` }>
+            <Link
+              key={ d.idDrink }
+              to={ `/drinks/${d.idDrink}` }
+              data-testid={ `link-${i}` }
+            >
               <div
-                key={ d.idDrink }
                 data-testid={ `${i}-recipe-card` }
               >
                 <img

@@ -1,15 +1,21 @@
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useContext } from 'react';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import Recomended from '../components/Recomended';
+import CardDetails from '../components/CardDetails';
+import AppContext from '../context/AppContext';
 
 function RecipeDetails(props) {
   const { match: { params: { id } } } = props;
   const location = useLocation().pathname;
-  const [recipeIdState, setRecipeIdState] = useState('');
-  const [ingredients, setIngredients] = useState([]);
-  const [measures, setMeasures] = useState([]);
+
+  const { recipeIdState,
+    setRecipeIdState,
+    ingredients,
+    setIngredients,
+    measures,
+    setMeasures } = useContext(AppContext);
 
   useEffect(() => {
     if (location.includes('meals')) {
@@ -61,29 +67,15 @@ function RecipeDetails(props) {
   if (location.includes('drinks')) {
     return (
       <div>
-        <h1 data-testid="recipe-title">{ recipeIdState.strDrink }</h1>
-        <img
-          data-testid="recipe-photo"
-          src={ recipeIdState.strDrinkThumb }
-          alt="foto da bebida da receita"
-        />
-        <h2>Categoria da receita</h2>
-        <p data-testid="recipe-category">
-          { recipeIdState.strCategory }
-          {recipeIdState.strAlcoholic}
-
-        </p>
-        <h2>Ingredientes</h2>
-        {ingredients.map((ingredient, index) => (
-          <p
-            key={ index }
-            data-testid={ `${index}-ingredient-name-and-measure` }
-          >
-            {`${ingredient} ${measures[index]}`}
-          </p>))}
-        <h2>Instruções</h2>
-        <p data-testid="instructions">{ recipeIdState.strInstructions }</p>
+        {recipeIdState !== undefined
+        && <CardDetails
+          recipeIdState={ recipeIdState }
+          ingredients={ ingredients }
+          type="drink"
+          measures={ measures }
+        />}
         <Recomended par="drinks" />
+        <Link to={ `/drinks/${id}/in-progress` }>Start Recipe</Link>
       </div>
     );
   }
@@ -91,37 +83,15 @@ function RecipeDetails(props) {
   if (location.includes('meals')) {
     return (
       <div>
-        <h1 data-testid="recipe-title">{recipeIdState.strMeal}</h1>
-        <img
-          src={ recipeIdState.strMealThumb }
-          alt="Foto da receita"
-          data-testid="recipe-photo"
-        />
-        <h2>Categoria da receita</h2>
-        <p data-testid="recipe-category">{ recipeIdState.strCategory }</p>
-        <h2>Ingredientes</h2>
-        {ingredients.map((mealingredient, index) => (
-          <p
-            key={ index }
-            data-testid={ `${index}-ingredient-name-and-measure` }
-          >
-            {`${mealingredient} ${measures[index]}`}
-          </p>))}
-        <h2>Instruções</h2>
-        <p data-testid="instructions">{ recipeIdState.strInstructions }</p>
-        <h2>Video</h2>
-        <iframe
-          width="420"
-          height="315"
-          src={ recipeIdState ? recipeIdState
-            .strYoutube.replace('/watch?v=', '/embed/') : null }
-          title={ `receita ${recipeIdState.strMeal}` }
-          allow="accelerometer;
-          autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          data-testid="video"
-        />
+        {recipeIdState !== undefined
+          && <CardDetails
+            recipeIdState={ recipeIdState }
+            ingredients={ ingredients }
+            type="meals"
+            measures={ measures }
+          />}
         <Recomended par="meals" />
+        <Link to={ `/meals/${id}/in-progress` }>Start Recipe</Link>
       </div>
     );
   }
