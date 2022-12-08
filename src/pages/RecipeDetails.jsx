@@ -71,15 +71,11 @@ function RecipeDetails(props) {
     setMeasures(measuresArray);
   }, [recipeIdState]);
 
-  // Deixar essa parte comentada para funcionar o código no navegador. No cypress não da problema pois tem mock do storage. Req 30.
   useEffect(() => {
-    if (inProgress()) {
-      const inProgressJson = JSON.parse(inProgress());
-      const progressArray = Object.keys(inProgressJson);
-      const progressArray2 = Object.keys(inProgressJson[progressArray[0]]);
-      if (progressArray2.includes(id)) {
-        setStartBtn('Continue');
-      }
+    const progressArray = Object.keys(inProgress());
+    const progressArray2 = Object.keys(inProgress()[progressArray[0]]);
+    if (progressArray2.includes(id)) {
+      setStartBtn('Continue');
     }
   }, []);
 
