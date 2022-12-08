@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
-import { useEffect, useContext } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useEffect, useContext, useState } from 'react';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import Recomended from '../components/Recomended';
 import CardDetails from '../components/CardDetails';
 import AppContext from '../context/AppContext';
+import { inProgress } from '../services/localStorage';
 
 function RecipeDetails(props) {
   const { match: { params: { id } } } = props;
   const location = useLocation().pathname;
+  const history = useHistory();
+  /*   const [progress, setProgress] = useState([]); */
+  const [startBtn, setStartBtn] = useState('Start');
 
   const { recipeIdState,
     setRecipeIdState,
@@ -64,6 +68,17 @@ function RecipeDetails(props) {
     setMeasures(measuresArray);
   }, [recipeIdState]);
 
+  useEffect(() => {
+    if (inProgress()) {
+      const inProgressJson = JSON.parse(inProgress());
+      const progressArray = Object.keys(inProgressJson);
+      const progressArray2 = Object.keys(inProgressJson[progressArray[0]]);
+      if (progressArray2.includes(id)) {
+        setStartBtn('Continue');
+      }
+    }
+  }, []);
+
   if (location.includes('drinks')) {
     return (
       <div>
@@ -75,7 +90,17 @@ function RecipeDetails(props) {
           measures={ measures }
         />}
         <Recomended par="drinks" />
-        <Link to={ `/drinks/${id}/in-progress` }>Start Recipe</Link>
+        <button
+          type="button"
+          data-testid="start-recipe-btn"
+          onClick={ () => (history.push(`/drinks/${id}/in-progress`)) }
+        >
+          { startBtn }
+          {' '}
+          Recipe
+        </button>
+        <button data-testid="share-btn" type="button">Compartilhar</button>
+        <button data-testid="favorite-btn" type="button">Favoritar</button>
       </div>
     );
   }
@@ -91,7 +116,17 @@ function RecipeDetails(props) {
             measures={ measures }
           />}
         <Recomended par="meals" />
-        <Link to={ `/meals/${id}/in-progress` }>Start Recipe</Link>
+        <button
+          type="button"
+          data-testid="start-recipe-btn"
+          onClick={ () => (history.push(`/meals/${id}/in-progress`)) }
+        >
+          { startBtn }
+          {' '}
+          Recipe
+        </button>
+        <button data-testid="share-btn" type="button">Compartilhar</button>
+        <button data-testid="favorite-btn" type="button">Favoritar</button>
       </div>
     );
   }
