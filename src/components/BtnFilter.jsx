@@ -46,7 +46,7 @@ function BtnFilter() {
   };
 
   return (
-    <div>
+    <div className="tag-buttons">
       { (pathname === '/meals') && (mealCathegory.map((c, i) => (
         i < cinco && (
           <button
