@@ -8,8 +8,8 @@ import CardDetails from '../components/CardDetails';
 import AppContext from '../context/AppContext';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
 import '../styles/RecipeDetails.css';
+import FavoriteBtn from '../components/FavoriteBtn';
 
 function RecipeDetails(props) {
   const { match: { params: { id } } } = props;
@@ -114,9 +114,7 @@ function RecipeDetails(props) {
         >
           <img src={ shareIcon } alt="share button" />
         </button>
-        <button data-testid="favorite-btn" type="button">
-          <img src={ whiteHeart } alt="favorite button" />
-        </button>
+        <FavoriteBtn />
         {copyState ? <p>Link copied!</p> : ''}
       </div>
     );
@@ -152,9 +150,7 @@ function RecipeDetails(props) {
         >
           <img src={ shareIcon } alt="share button" />
         </button>
-        <button data-testid="favorite-btn" type="button">
-          <img src={ whiteHeart } alt="favorite button" />
-        </button>
+        <FavoriteBtn />
         {copyState ? <p>Link copied!</p> : null}
       </div>
     );
