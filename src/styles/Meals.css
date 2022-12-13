@@ -1,0 +1,21 @@
+.img-meals {
+  box-shadow: 8px 8px 5px #888;
+  width: 25%;
+}
+
+.card-meals {
+  align-content: center;
+  align-items: flex-end;
+  background-color: #86bbd8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 5%;
+}
+
+
+.card-meals > div {
+  margin: 5%;
+
+
+}

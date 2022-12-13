@@ -9,6 +9,7 @@ import AppContext from '../context/AppContext';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeart from '../images/whiteHeartIcon.svg';
+import '../styles/RecipeDetails.css';
 
 function RecipeDetails(props) {
   const { match: { params: { id } } } = props;
