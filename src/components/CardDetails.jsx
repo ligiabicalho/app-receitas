@@ -121,8 +121,8 @@ function CardDetails(props) {
         && (<iframe
           width="420"
           height="315"
-          src={ recipeIdState ? recipeIdState
-            .strYoutube.replace('/watch?v=', '/embed/') : null }
+          src={ recipeIdState && recipeIdState
+            .strYoutube.replace('/watch?v=', '/embed/') }
           title={ `receita ${recipeIdState.strMeal}` }
           allow="accelerometer;
           autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -145,7 +145,9 @@ function CardDetails(props) {
             <button
               type="button"
               data-testid="start-recipe-btn"
-              onClick={ () => (history.push(`/drinks/${id}/in-progress`)) }
+              onClick={ () => (type === 'meals'
+                ? (history.push(`/meals/${id}/in-progress`))
+                : (history.push(`/drinks/${id}/in-progress`))) }
             >
               { startBtn }
               {' '}
