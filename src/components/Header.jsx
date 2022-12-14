@@ -23,31 +23,35 @@ function Header({ title }) {
   };
 
   return (
-    <header className="header-div">
-      <h1 data-testid="page-title">{title}</h1>
-      <button onClick={ handleClick } type="button">
-        <img
-          src={ ProfilePicture }
-          alt="imagem de perfil"
-          data-testid="profile-top-btn"
-        />
-      </button>
-      { ((title === 'Meals' || title === 'Drinks')
-        ? (
-          <button onClick={ handleBtnClick } type="button">
+    <div>
+      <header className="header-div">
+        <div>
+          <button onClick={ handleClick } type="button">
             <img
-              src={ SearchIcon }
-              alt="ícone de pesquisa"
-              data-testid="search-top-btn"
+              src={ ProfilePicture }
+              alt="imagem de perfil"
+              data-testid="profile-top-btn"
             />
           </button>
-        )
-        : '') }
-      { inputOn === true
-        ? (
-          <SearchBar />)
-        : '' }
-    </header>
+          {((title === 'Meals' || title === 'Drinks')
+            ? (
+              <button onClick={ handleBtnClick } type="button">
+                <img
+                  src={ SearchIcon }
+                  alt="ícone de pesquisa"
+                  data-testid="search-top-btn"
+                />
+              </button>
+            )
+            : '')}
+          {inputOn === true
+            ? (
+              <SearchBar />)
+            : ''}
+        </div>
+      </header>
+      <h1 data-testid="page-title">{title}</h1>
+    </div>
   );
 }
 

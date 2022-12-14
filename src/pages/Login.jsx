@@ -35,7 +35,11 @@ export default function Login({ history }) {
 
   return (
     <div className="login-page">
-      <h1>Recipes App</h1>
+      <div id="login-h1">
+        <img src="https://i.pinimg.com/originals/ce/58/ac/ce58ac51f8c46cc817940d962e3e1f61.png" alt="logo" />
+        <h1>RECIPES APP</h1>
+        <h3>Login</h3>
+      </div>
       <form className="form-login">
         <label htmlFor="email">
           <input
