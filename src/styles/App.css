@@ -9,6 +9,7 @@ body {
   width: 100%;
 }
 
+/* necessário para req 28 */
 .start-finish-btn {
   bottom: 0;
   position: fixed;
