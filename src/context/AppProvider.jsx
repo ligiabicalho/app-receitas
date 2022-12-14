@@ -21,6 +21,7 @@ function AppProvider({ children }) {
   const [recipeIdState, setRecipeIdState] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
+  const [favoriteId, setFavoriteId] = useState([]);
 
   const history = useHistory();
 
@@ -85,6 +86,8 @@ function AppProvider({ children }) {
       setIngredients,
       measures,
       setMeasures,
+      favoriteId,
+      setFavoriteId,
     }),
     [
       recipeIdState,
@@ -94,7 +97,7 @@ function AppProvider({ children }) {
       meals,
       search,
       searchRadio,
-      drinkCathegory, mealCathegory],
+      drinkCathegory, mealCathegory, favoriteId],
   );
 
   return (

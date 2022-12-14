@@ -4,9 +4,8 @@ import blackHeart from '../images/blackHeartIcon.svg';
 import AppContext from '../context/AppContext';
 
 function FavoriteBtn() {
-  const { recipeIdState } = useContext(AppContext);
-  const [favorites, setFavorites] = useState([]);
-  const [favorited, setFavorited] = useState(false);
+  const { recipeIdState, favoriteId, setFavoriteId } = useContext(AppContext);
+  /*   const [favorites, setFavorites] = useState([]); */
 
   const { idMeal, strMeal, strArea, strCategory, strMealThumb,
     idDrink, strAlcoholic, strDrinkThumb, strDrink } = recipeIdState;
@@ -24,7 +23,8 @@ function FavoriteBtn() {
       tags: '',
     }];
     const filteredId = storageData?.map((e) => e.id);
-    setFavorites(filteredId);
+    /*     setFavorites(storageData); */
+    setFavoriteId(...favoriteId, filteredId);
   }, []);
 
   const createStorage = () => {
@@ -71,12 +71,13 @@ function FavoriteBtn() {
       type="button"
       onClick={ () => {
         handleFavorite();
-        setFavorited(!favorited);
       } }
     >
       <img
-        src={ favorites
-          .includes(idMeal || idDrink) && (favorited === true) ? blackHeart : whiteHeart }
+        src={ /* favorites
+          .includes(idMeal || idDrink) || */ favoriteId
+            .includes(idMeal || idDrink) ? blackHeart : whiteHeart
+        }
         data-testid="favorite-btn"
         alt="favorite button"
       />
