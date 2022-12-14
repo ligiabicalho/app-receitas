@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ProfilePicture from '../images/profileIcon.svg';
 import SearchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
+import '../styles/Header.css';
 
 function Header({ title }) {
   const [inputOn, setInputOn] = useState(false);
