@@ -16,7 +16,7 @@ function Recomended(props) {
         { drinks.length > 0 && drinks.map((d, i) => (
           i <= number
           && (
-            <Carousel.Item>
+            <Carousel.Item key={ i }>
               <img
                 data-testid={ `${i}-recommendation-card` }
                 src={ d?.strDrinkThumb }
@@ -53,7 +53,7 @@ function Recomended(props) {
         { meals.length > 0 && meals.map((m, i) => (
           i <= number
           && (
-            <Carousel.Item>
+            <Carousel.Item key={ i }>
               <img
                 data-testid={ `${i}-recommendation-card` }
                 src={ m?.strMealThumb }

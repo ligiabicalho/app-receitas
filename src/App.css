@@ -74,3 +74,10 @@
   position: fixed;
   width: 100%;
 }
+
+.start-finish-btn {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
