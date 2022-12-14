@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
@@ -8,10 +8,11 @@ import CardDetails from '../components/CardDetails';
 import AppContext from '../context/AppContext';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
+import '../styles/RecipeDetails.css';
+import FavoriteBtn from '../components/FavoriteBtn';
 
-function RecipeDetails(props) {
-  const { match: { params: { id } } } = props;
+function RecipeDetails() {
+  const { id } = useParams();
   const location = useLocation().pathname;
   const history = useHistory();
   const [copyState, setCopyState] = useState(false);
@@ -87,13 +88,10 @@ function RecipeDetails(props) {
   if (location.includes('drinks')) {
     return (
       <div>
-        {recipeIdState !== undefined
-        && <CardDetails
-          recipeIdState={ recipeIdState }
-          ingredients={ ingredients }
+        <CardDetails
+          id={ id }
           type="drink"
-          measures={ measures }
-        />}
+        />
         <Recomended par="drinks" />
         <button
           type="button"
@@ -114,9 +112,7 @@ function RecipeDetails(props) {
         >
           <img src={ shareIcon } alt="share button" />
         </button>
-        <button data-testid="favorite-btn" type="button">
-          <img src={ whiteHeart } alt="favorite button" />
-        </button>
+        <FavoriteBtn id={ id } />
         {copyState ? <p>Link copied!</p> : ''}
       </div>
     );
@@ -125,37 +121,12 @@ function RecipeDetails(props) {
   if (location.includes('meals')) {
     return (
       <div>
-        {recipeIdState !== undefined
-          && <CardDetails
-            recipeIdState={ recipeIdState }
-            ingredients={ ingredients }
-            type="meals"
-            measures={ measures }
-          />}
+        {' '}
+        <CardDetails
+          id={ id }
+          type="meals"
+        />
         <Recomended par="meals" />
-        <button
-          type="button"
-          data-testid="start-recipe-btn"
-          onClick={ () => (history.push(`/meals/${id}/in-progress`)) }
-        >
-          { startBtn }
-          {' '}
-          Recipe
-        </button>
-        <button
-          data-testid="share-btn"
-          type="button"
-          onClick={ () => {
-            copy(window.location.href);
-            setCopyState(true);
-          } }
-        >
-          <img src={ shareIcon } alt="share button" />
-        </button>
-        <button data-testid="favorite-btn" type="button">
-          <img src={ whiteHeart } alt="favorite button" />
-        </button>
-        {copyState ? <p>Link copied!</p> : null}
       </div>
     );
   }

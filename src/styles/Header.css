@@ -1,0 +1,14 @@
+.header-div {
+  background-color: #2f4858;
+  color: white;
+}
+
+.tag-buttons {
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
