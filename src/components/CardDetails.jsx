@@ -129,12 +129,13 @@ function CardDetails(props) {
           allowFullScreen
           data-testid="video"
         />)}
-      <div className="start-finish-btn">
+      <div className="btns">
         {location.includes('in-progress')
           ? (
             <button
               type="button"
               data-testid="finish-recipe-btn"
+              className="start-finish-btn"
               disabled={ isDisabled }
               onClick={ handleClick }
             >
@@ -145,6 +146,7 @@ function CardDetails(props) {
             <button
               type="button"
               data-testid="start-recipe-btn"
+              className="start-finish-btn"
               onClick={ () => (type === 'meals'
                 ? (history.push(`/meals/${id}/in-progress`))
                 : (history.push(`/drinks/${id}/in-progress`))) }
