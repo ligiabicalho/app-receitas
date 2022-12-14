@@ -1,4 +1,22 @@
-.meals {
+body {
+  min-height: 100 vh;
+}
+
+.footer {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.start-finish-btn {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+/* .meals {
   align-items: center;
   background: #0fa36b;
   color: #464646;
@@ -15,18 +33,5 @@
   font-family: Montserrat , sans-serif;
   font-size: 3em;
   font-weight: 900;
-}
+} */
 
-.footer {
-  background-color: #464646;
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.start-finish-btn {
-  background-color: #464646;
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-}
