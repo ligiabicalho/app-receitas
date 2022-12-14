@@ -10,7 +10,6 @@ function Recomended(props) {
   const number = 2;
   const anotherNumber = 3;
   if (par === 'meals') {
-    console.log(meals);
     return (
       <Carousel>
         { drinks.length > 0 && drinks.map((d, i) => (

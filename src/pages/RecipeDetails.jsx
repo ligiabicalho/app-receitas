@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
@@ -11,8 +11,8 @@ import shareIcon from '../images/shareIcon.svg';
 import '../styles/RecipeDetails.css';
 import FavoriteBtn from '../components/FavoriteBtn';
 
-function RecipeDetails(props) {
-  const { match: { params: { id } } } = props;
+function RecipeDetails() {
+  const { id } = useParams();
   const location = useLocation().pathname;
   const history = useHistory();
   const [copyState, setCopyState] = useState(false);
@@ -114,7 +114,7 @@ function RecipeDetails(props) {
         >
           <img src={ shareIcon } alt="share button" />
         </button>
-        <FavoriteBtn />
+        <FavoriteBtn id={ id } />
         {copyState ? <p>Link copied!</p> : ''}
       </div>
     );
@@ -150,7 +150,7 @@ function RecipeDetails(props) {
         >
           <img src={ shareIcon } alt="share button" />
         </button>
-        <FavoriteBtn />
+        <FavoriteBtn id={ id } />
         {copyState ? <p>Link copied!</p> : null}
       </div>
     );

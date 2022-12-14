@@ -1,30 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import whiteHeart from '../images/whiteHeartIcon.svg';
 import blackHeart from '../images/blackHeartIcon.svg';
 import AppContext from '../context/AppContext';
 
-function FavoriteBtn() {
-  const { recipeIdState, favoriteId, setFavoriteId } = useContext(AppContext);
-  /*   const [favorites, setFavorites] = useState([]); */
+function FavoriteBtn({ id }) {
+  const { recipeIdState } = useContext(AppContext);
+  const [favorites, setFavorites] = useState(false);
 
   const { idMeal, strMeal, strArea, strCategory, strMealThumb,
     idDrink, strAlcoholic, strDrinkThumb, strDrink } = recipeIdState;
 
   useEffect(() => {
-    const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [{
-      id: '',
-      type: '',
-      nationality: '',
-      category: '',
-      alcoholicOrNot: '',
-      name: '',
-      image: '',
-      doneDate: '',
-      tags: '',
-    }];
-    const filteredId = storageData?.map((e) => e.id);
-    /*     setFavorites(storageData); */
-    setFavoriteId(...favoriteId, filteredId);
+    const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    const filteredId = storageData.find((e) => e.id === id);
+    setFavorites(filteredId);
   }, []);
 
   const createStorage = () => {
@@ -62,8 +52,16 @@ function FavoriteBtn() {
   };
 
   const handleFavorite = () => {
-    const recipeData = createStorage();
-    addToLocalStorage(recipeData);
+    const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    if (storageData.map((e) => e.id).includes(id)) {
+      const removeFav = storageData.filter((recipes) => recipes.id === !id);
+      localStorage.setItem('favoriteRecipes', JSON.stringify(removeFav));
+      setFavorites(false);
+    } else {
+      const recipeData = createStorage();
+      addToLocalStorage(recipeData);
+      setFavorites(true);
+    }
   };
 
   return (
@@ -74,15 +72,16 @@ function FavoriteBtn() {
       } }
     >
       <img
-        src={ /* favorites
-          .includes(idMeal || idDrink) || */ favoriteId
-            .includes(idMeal || idDrink) ? blackHeart : whiteHeart
-        }
+        src={ favorites ? blackHeart : whiteHeart }
         data-testid="favorite-btn"
         alt="favorite button"
       />
     </button>
   );
 }
+
+FavoriteBtn.propTypes = ({
+  id: PropTypes.string,
+}).isRequired;
 
 export default FavoriteBtn;
