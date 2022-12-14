@@ -37,6 +37,7 @@ function RecipeDetails(props) {
       const getDrinksDetails = async () => {
         const drinkRecipeDetails = await fetchDrinkDetails(id);
         setRecipeIdState(drinkRecipeDetails);
+        console.log(drinkRecipeDetails);
       };
 
       getDrinksDetails();
