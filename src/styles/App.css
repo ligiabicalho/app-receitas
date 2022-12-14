@@ -1,0 +1,32 @@
+.meals {
+  align-items: center;
+  background: #0fa36b;
+  color: #464646;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.meals > .logo {
+  color: aliceblue;
+  font-family: Montserrat , sans-serif;
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.footer {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.start-finish-btn {
+  background-color: #464646;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
