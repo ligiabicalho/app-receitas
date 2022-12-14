@@ -20,9 +20,9 @@ function RecipeDetails() {
 
   const { recipeIdState,
     setRecipeIdState,
-    ingredients,
+    // ingredients,
     setIngredients,
-    measures,
+    // measures,
     setMeasures } = useContext(AppContext);
 
   useEffect(() => {
