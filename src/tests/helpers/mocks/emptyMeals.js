@@ -1,3 +1,3 @@
-const emptyMeals = { 'meals': null };
+const emptyMeals = { meals: null };
 
 module.exports = emptyMeals;
