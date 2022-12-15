@@ -29,8 +29,6 @@ describe('testando component searchBar', () => {
     expect(radioName).toBeInTheDocument();
     expect(radioLetter).toBeInTheDocument();
     expect(submitButton).toBeInTheDocument();
-
-    // const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
   });
   it('testa o filtro de primeira letra', () => {
     renderWithRouter(

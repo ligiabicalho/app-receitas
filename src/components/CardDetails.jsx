@@ -24,10 +24,12 @@ function CardDetails(props) {
     setMeasures } = useContext(AppContext);
 
   useEffect(() => {
-    const progressArray = Object.keys(inProgress());
-    const progressArray2 = Object.keys(inProgress()[progressArray[0]]);
-    if (progressArray2.includes(id)) {
-      setStartBtn('Continue');
+    if (inProgress() !== null) {
+      const progressArray = Object.keys(inProgress());
+      const progressArray2 = Object.keys(inProgress()[progressArray[0]]);
+      if (progressArray2.includes(id)) {
+        setStartBtn('Continue');
+      }
     }
   }, []);
 
