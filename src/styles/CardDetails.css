@@ -51,8 +51,12 @@
 
 .start-finish-btn {
   background-color: #ffd41d;
-  margin: 25px;
-  padding: 5px 100px;
+  bottom: 0;
+  display: flex;
+  padding: 5px 30px;
+  position: fixed;
+  right: 0;
+  text-align: center;
   transition: 0.3s;
 }
 
