@@ -4,9 +4,7 @@ import copy from 'clipboard-copy';
 import Recomended from '../components/Recomended';
 import CardDetails from '../components/CardDetails';
 import shareIcon from '../images/shareIcon.svg';
-import '../styles/RecipeDetails.css';
 import FavoriteBtn from '../components/FavoriteBtn';
-
 
 function RecipeDetails() {
   const { id } = useParams();
