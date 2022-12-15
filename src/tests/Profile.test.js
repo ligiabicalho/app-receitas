@@ -5,6 +5,7 @@ import renderWithRouter from './helpers/renderWith';
 import App from '../App';
 import Profile from '../pages/Profile';
 import AppProvider from '../context/AppProvider';
+import '@testing-library/jest-dom';
 
 describe('Testando se no componente Login...', () => {
   const ID_EMAIL = 'email-input';

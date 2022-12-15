@@ -5,6 +5,7 @@ import Meals from '../components/Meals';
 import Drinks from '../components/Drinks';
 import RenderWithRouter from './helpers/RenderWithRouter';
 import AppProvider from '../context/AppProvider';
+import '@testing-library/jest-dom';
 
 describe('Testa o componente Footer', () => {
   test('se o componente Footer é renderizado nas páginas de Meals com todos seus elementos', () => {

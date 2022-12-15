@@ -4,6 +4,7 @@ import renderWithRouter from './helpers/renderWith';
 import AppProvider from '../context/AppProvider';
 import Meals from '../components/Meals';
 import Drinks from '../components/Drinks';
+import '@testing-library/jest-dom';
 
 describe('testando component searchBar', () => {
   it('testa se a barra e os radios estão na tela', async () => {

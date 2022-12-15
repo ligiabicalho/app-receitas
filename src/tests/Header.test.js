@@ -8,6 +8,7 @@ import Drinks from '../components/Drinks';
 import RenderWithRouter from './helpers/RenderWithRouter';
 import Profile from '../pages/Profile';
 import AppProvider from '../context/AppProvider';
+import '@testing-library/jest-dom';
 
 describe('Testa o componente Header', () => {
   const seachId = 'search-top-btn';
