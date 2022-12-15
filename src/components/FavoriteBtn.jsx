@@ -12,9 +12,15 @@ function FavoriteBtn({ id }) {
     idDrink, strAlcoholic, strDrinkThumb, strDrink } = recipeIdState;
 
   useEffect(() => {
-    const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-    const filteredId = storageData.find((e) => e.id === id);
-    setFavorites(filteredId);
+    const storageData = localStorage.getItem('favoriteRecipes');
+    if (storageData !== null) {
+      const notNull = JSON.parse(storageData) || [];
+      const filteredId = notNull.find((e) => e.id === id);
+      setFavorites(filteredId);
+    }
+    // const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    // const filteredId = storageData.find((e) => e.id === id);
+    // setFavorites(filteredId);
   }, []);
 
   const createStorage = () => {
