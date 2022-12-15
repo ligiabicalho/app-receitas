@@ -9,6 +9,12 @@
   color: white;
   padding: 5px;
   border-radius: 5px;
+  transition: 0.3s;
+}
+
+.nav-buttons:hover {
+  background-color: white;
+  color: rgb(14, 14, 170);
 }
 
 .div-profile {

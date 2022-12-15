@@ -7,6 +7,7 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeart from '../images/whiteHeartIcon.svg';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import AppContext from '../context/AppContext';
+import '../styles/CardDetails.css';
 
 function CardDetails(props) {
   const { type, id } = props;
@@ -87,89 +88,103 @@ function CardDetails(props) {
   };
 
   return (
-    <div>
-      <h1
-        data-testid="recipe-title"
-      >
-        {type === 'drink' ? recipeIdState.strDrink : recipeIdState.strMeal}
-      </h1>
-      <img
-        data-testid="recipe-photo"
-        src={ type === 'drink'
-          ? recipeIdState.strDrinkThumb : recipeIdState.strMealThumb }
-        alt="foto da receita"
-      />
-      <h2>Categoria da receita</h2>
-      <p data-testid="recipe-category">
-        {recipeIdState.strCategory}
-        {type === 'drink' && recipeIdState.strAlcoholic}
+    <div className="Card-Details">
+      <div className="img-title">
+        <h1
+          data-testid="recipe-title"
+        >
+          {type === 'drink' ? recipeIdState.strDrink : recipeIdState.strMeal}
+        </h1>
+        <img
+          data-testid="recipe-photo"
+          src={ type === 'drink'
+            ? recipeIdState.strDrinkThumb : recipeIdState.strMealThumb }
+          alt="foto da receita"
+        />
+        <div className="share-like">
+          <button
+            data-testid="share-btn"
+            type="button"
+            onClick={ () => {
+              copy(window.location.href);
+              setCopyState(true);
+            } }
+          >
+            <img src={ shareIcon } alt="share button" />
+          </button>
+          <button data-testid="favorite-btn" type="button">
+            <img src={ whiteHeart } alt="favorite button" />
+          </button>
+          {copyState ? <p>Link copied!</p> : ''}
+        </div>
+      </div>
+      <div className="resto">
+        <h2>Categoria da receita</h2>
+        <p data-testid="recipe-category">
+          {recipeIdState.strCategory}
+          {type === 'drink' && recipeIdState.strAlcoholic}
 
-      </p>
-      <h2>Ingredientes</h2>
-      {ingredients.map((ingredient, index) => (
-        <p
-          key={ index }
-          data-testid={ `${index}-ingredient-name-and-measure` }
-        >
-          {ingredient !== undefined
-            && ingredient !== null
-            && `${ingredient} ${measures[index]}`}
-        </p>))}
-      <h2>Instruções</h2>
-      <p data-testid="instructions">{recipeIdState.strInstructions}</p>
-      {type === 'meals'
-        && (<iframe
-          width="420"
-          height="315"
-          src={ recipeIdState && recipeIdState
-            .strYoutube.replace('/watch?v=', '/embed/') }
-          title={ `receita ${recipeIdState.strMeal}` }
-          allow="accelerometer;
+        </p>
+        <h2>Ingredientes</h2>
+        {ingredients.map((ingredient, index) => (
+          <p
+            key={ index }
+            data-testid={ `${index}-ingredient-name-and-measure` }
+          >
+            {ingredient !== undefined
+              && ingredient !== null
+              && `${ingredient} ${measures[index]}`}
+          </p>))}
+        <div className="instructions">
+          <h2>Instruções</h2>
+          <p
+            className="description"
+            data-testid="instructions"
+          >
+            {recipeIdState.strInstructions}
+          </p>
+        </div>
+        {type === 'meals'
+          && (<iframe
+            width="420"
+            height="315"
+            src={ recipeIdState && recipeIdState
+              .strYoutube.replace('/watch?v=', '/embed/') }
+            title={ `receita ${recipeIdState.strMeal}` }
+            allow="accelerometer;
           autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          data-testid="video"
-        />)}
-      <div className="btns">
-        {location.includes('in-progress')
-          ? (
-            <button
-              type="button"
-              data-testid="finish-recipe-btn"
-              className="start-finish-btn"
-              disabled={ isDisabled }
-              onClick={ handleClick }
-            >
-              Finish recipe
-            </button>
-          )
-          : (
-            <button
-              type="button"
-              data-testid="start-recipe-btn"
-              className="start-finish-btn"
-              onClick={ () => (type === 'meals'
-                ? (history.push(`/meals/${id}/in-progress`))
-                : (history.push(`/drinks/${id}/in-progress`))) }
-            >
-              { startBtn }
-              {' '}
-              Recipe
-            </button>
-          )}
-        <button
-          data-testid="share-btn"
-          type="button"
-          onClick={ () => {
-            copy(window.location.href);
-            setCopyState(true);
-          } }
-        >
-          <img src={ shareIcon } alt="share button" />
-        </button>
-        <button data-testid="favorite-btn" type="button">
-          <img src={ whiteHeart } alt="favorite button" />
-        </button>
-        {copyState ? <p>Link copied!</p> : ''}
+            allowFullScreen
+            data-testid="video"
+          />)}
+        <div className="btns">
+          {location.includes('in-progress')
+            ? (
+              <button
+                type="button"
+                data-testid="finish-recipe-btn"
+                className="start-finish-btn"
+                disabled={ isDisabled }
+                onClick={ handleClick }
+              >
+                Finish recipe
+              </button>
+            )
+            : (
+              <button
+                type="button"
+                data-testid="start-recipe-btn"
+                className="start-finish-btn"
+                onClick={ () => (type === 'meals'
+                  ? (history.push(`/meals/${id}/in-progress`))
+                  : (history.push(`/drinks/${id}/in-progress`))) }
+              >
+                {startBtn}
+                {' '}
+                Recipe
+              </button>
+            )}
+        </div>
+
       </div>
     </div>
   );
