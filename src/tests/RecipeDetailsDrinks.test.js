@@ -31,4 +31,13 @@ describe('testa as branches da tela RecipeDetails', () => {
     userEvent.click(btnProgress);
     expect(history.location.pathname).toBe('/drinks/15997/in-progress');
   });
+  it('testa a tela Recipe Details', () => {
+    const { history } = RenderWithRouter(<App />);
+    act(() => {
+      history.push('/drinks');
+    });
+
+    const testElement = screen.queryByText(/test/i);
+    expect(testElement).not.toBeInTheDocument();
+  });
 });

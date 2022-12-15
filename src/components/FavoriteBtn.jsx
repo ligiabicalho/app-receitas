@@ -7,20 +7,13 @@ import AppContext from '../context/AppContext';
 function FavoriteBtn({ id }) {
   const { recipeIdState } = useContext(AppContext);
   const [favorites, setFavorites] = useState(false);
-
   const { idMeal, strMeal, strArea, strCategory, strMealThumb,
     idDrink, strAlcoholic, strDrinkThumb, strDrink } = recipeIdState;
 
   useEffect(() => {
-    const storageData = localStorage.getItem('favoriteRecipes');
-    if (storageData !== null) {
-      const notNull = JSON.parse(storageData) || [];
-      const filteredId = notNull.find((e) => e.id === id);
-      setFavorites(filteredId);
-    }
-    // const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-    // const filteredId = storageData.find((e) => e.id === id);
-    // setFavorites(filteredId);
+    const storageData = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    const filteredId = storageData.find((e) => e.id === id);
+    setFavorites(filteredId);
   }, []);
 
   const createStorage = () => {
@@ -36,6 +29,7 @@ function FavoriteBtn({ id }) {
       };
       return recipeStorage;
     }
+
     const recipeData = {
       id: idDrink,
       type: 'drink',
@@ -85,9 +79,7 @@ function FavoriteBtn({ id }) {
     </button>
   );
 }
-
 FavoriteBtn.propTypes = ({
   id: PropTypes.string,
 }).isRequired;
-
 export default FavoriteBtn;

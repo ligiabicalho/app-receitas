@@ -8,6 +8,7 @@ import whiteHeart from '../images/whiteHeartIcon.svg';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import AppContext from '../context/AppContext';
 import '../styles/CardDetails.css';
+import FavoriteBtn from './FavoriteBtn';
 
 function CardDetails(props) {
   const { type, id } = props;
@@ -114,9 +115,7 @@ function CardDetails(props) {
           >
             <img src={ shareIcon } alt="share button" />
           </button>
-          <button data-testid="favorite-btn" type="button">
-            <img src={ whiteHeart } alt="favorite button" />
-          </button>
+          <FavoriteBtn id={ id } />
           {copyState ? <p>Link copied!</p> : ''}
         </div>
       </div>

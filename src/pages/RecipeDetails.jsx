@@ -7,7 +7,8 @@ function RecipeDetails() {
   const { id } = useParams();
   const location = useLocation().pathname;
 
-  if (location.includes('drinks')) {
+  switch (location) {
+  case `/drinks/${id}`:
     return (
       <div>
         <CardDetails
@@ -17,9 +18,7 @@ function RecipeDetails() {
         <Recomended par="drinks" />
       </div>
     );
-  }
-
-  if (location.includes('meals')) {
+  default:
     return (
       <div>
         {' '}
