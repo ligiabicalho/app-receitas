@@ -1,0 +1,62 @@
+.Card-Details {
+  width: 100%;
+}
+
+/* .Card-Details p {
+  width: 300px;
+} */
+
+.img-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-title img {
+  width: 250px;
+}
+
+.share-like {
+  flex-direction: row;
+}
+
+.share-like button img {
+  height: 50px;
+  padding: 5px;
+  width: 50px;
+}
+
+.share-like button {
+  background-color: #ffd41d;
+  border-radius: 5px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.share-like button:hover {
+  background-color: white;
+}
+
+.resto {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instructions {
+  text-align: center;
+  width: 250px;
+}
+
+.start-finish-btn {
+  background-color: #ffd41d;
+  margin: 25px;
+  padding: 5px 100px;
+  transition: 0.3s;
+}
+
+.start-finish-btn:hover {
+  background-color: white;
+}
+

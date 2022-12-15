@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/SearchBar.css';
 
 function SearchBar() {
   const [radio, setRadio] = useState('');
@@ -29,56 +30,59 @@ function SearchBar() {
     <form onSubmit={ handleSubmit }>
       <label htmlFor="searchBar">
         <input
-          id="seachBar"
+          className="seachBar"
           type="text"
           name="text"
           value={ text }
           onChange={ handleChange }
           data-testid="search-input"
         />
+        <button
+          className="search-input"
+          type="submit"
+          data-testid="exec-search-btn"
+        >
+          Search
+        </button>
       </label>
-      <label
-        htmlFor="ingredient-radio"
-      >
-        <input
-          name="check-food"
-          id="ingredient-radio"
-          type="radio"
-          onChange={ handleChangeRadio }
-          data-testid="ingredient-search-radio"
-        />
-        Ingredient
-      </label>
-      <label
-        htmlFor="name-radio"
-      >
-        <input
-          name="check-food"
-          id="name-radio"
-          type="radio"
-          onChange={ handleChangeRadio }
-          data-testid="name-search-radio"
-        />
-        Name
-      </label>
-      <label
-        htmlFor="first-radio"
-      >
-        <input
-          name="check-food"
-          id="first-radio"
-          type="radio"
-          onChange={ handleChangeRadio }
-          data-testid="first-letter-search-radio"
-        />
-        First letter
-      </label>
-      <button
-        type="submit"
-        data-testid="exec-search-btn"
-      >
-        Search
-      </button>
+      <div>
+        <label
+          htmlFor="ingredient-radio"
+        >
+          <input
+            name="check-food"
+            id="ingredient-radio"
+            type="radio"
+            onChange={ handleChangeRadio }
+            data-testid="ingredient-search-radio"
+          />
+          Ingredient
+        </label>
+        <label
+          htmlFor="name-radio"
+        >
+          <input
+            name="check-food"
+            id="name-radio"
+            type="radio"
+            onChange={ handleChangeRadio }
+            data-testid="name-search-radio"
+          />
+          Name
+        </label>
+        <label
+          htmlFor="first-radio"
+        >
+          <input
+            name="check-food"
+            id="first-radio"
+            type="radio"
+            onChange={ handleChangeRadio }
+            data-testid="first-letter-search-radio"
+          />
+          First letter
+        </label>
+      </div>
     </form>
   );
 }

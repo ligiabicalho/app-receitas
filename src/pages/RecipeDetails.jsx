@@ -7,6 +7,7 @@ import shareIcon from '../images/shareIcon.svg';
 import '../styles/RecipeDetails.css';
 import FavoriteBtn from '../components/FavoriteBtn';
 
+
 function RecipeDetails() {
   const { id } = useParams();
   const location = useLocation().pathname;

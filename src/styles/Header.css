@@ -1,14 +1,32 @@
 .header-div {
-  background-color: #2f4858;
-  color: white;
+  align-items: center;
+  background-color: #ffd41d;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  width: auto;
 }
 
-.tag-buttons {
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px;
+.search-profile {
+  background-color: rgb(14, 14, 170);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.search-profile:hover {
+  background-color: white;
+}
+
+.page-tittle {
+  display: block;
+  text-align: center;
+}
+
+.knife {
+  color: rgb(14, 14, 170);
+  display: block;
+  font-size: 10vh;
+  text-align: center;
 }

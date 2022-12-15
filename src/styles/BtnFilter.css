@@ -1,0 +1,19 @@
+.filters {
+  background-color: rgb(14, 14, 170);
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+  margin: 0 2px;
+  padding: 2px 5px;
+  transition: 0.3s;
+}
+
+.filters:hover {
+  background-color: white;
+  color: rgb(14, 14, 170);
+}
+
+.tag-buttons {
+  display: flex;
+  justify-content: center;
+}

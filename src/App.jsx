@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import './styles/App.css';
 import AppProvider from './context/AppProvider';
 import Login from './pages/Login';
 import Recipes from './pages/Recipes';

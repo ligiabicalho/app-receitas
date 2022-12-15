@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { saveUserEmail } from '../services/localStorage';
+import '../styles/Login.css';
 
 export default function Login({ history }) {
   const [login, setLogin] = useState({
@@ -34,11 +35,16 @@ export default function Login({ history }) {
 
   return (
     <div className="login-page">
-      <h1>Recipes App</h1>
-      <form>
+      <div className="login-h1">
+        <img src="https://i.pinimg.com/originals/ce/58/ac/ce58ac51f8c46cc817940d962e3e1f61.png" alt="logo" />
+        <h1>RECIPES APP</h1>
+        <h3>Login</h3>
+      </div>
+      <form className="form-login">
         <label htmlFor="email">
-          E-mail:
           <input
+            placeholder="Email"
+            className="input-login"
             id="email"
             name="email"
             type="email"
@@ -50,8 +56,9 @@ export default function Login({ history }) {
         </label>
         <br />
         <label htmlFor="password">
-          Senha:
           <input
+            placeholder="Senha"
+            className="input-login"
             id="password"
             name="password"
             type="password"
@@ -63,6 +70,7 @@ export default function Login({ history }) {
         </label>
         <br />
         <button
+          className="button-login"
           type="button"
           data-testid="login-submit-btn"
           disabled={ login.isDisabled }

@@ -1,0 +1,28 @@
+.email {
+  margin-left: 7vh;
+}
+
+.nav-buttons {
+  background-color: rgb(14, 14, 170);
+  border-radius: 5px;
+  color: white;
+  margin: 0 5px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-buttons:hover {
+  background-color: white;
+  color: rgb(14, 14, 170);
+}
+
+.div-profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

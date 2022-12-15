@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import { fetchFilteredMeal, fetchFilteredDrink } from '../services/fetchAPI';
 import { mealsFetch, drinksFetch } from '../services/requestAPI';
+import '../styles/BtnFilter.css';
 
 function BtnFilter() {
   const { mealCathegory, drinkCathegory, setMeals, setDrinks } = useContext(AppContext);
@@ -50,6 +51,7 @@ function BtnFilter() {
       { (pathname === '/meals') && (mealCathegory.map((c, i) => (
         i < cinco && (
           <button
+            className="filters"
             data-testid={ `${c.strCategory}-category-filter` }
             type="button"
             key={ c.strCategory }
@@ -61,6 +63,7 @@ function BtnFilter() {
       )))}
       { (pathname === '/meals') && buttonAll && (
         <button
+          className="filters"
           type="button"
           data-testid="All-category-filter"
           onClick={ handleAllMeal }
@@ -70,6 +73,7 @@ function BtnFilter() {
       { (pathname === '/drinks') && (drinkCathegory.map((d, i) => (
         i < cinco && (
           <button
+            className="filters"
             data-testid={ `${d.strCategory}-category-filter` }
             type="button"
             key={ d.strCategory }
@@ -81,6 +85,7 @@ function BtnFilter() {
       )))}
       { (pathname === '/drinks') && buttonAll && (
         <button
+          className="filters"
           type="button"
           data-testid="All-category-filter"
           onClick={ handleAllDrink }

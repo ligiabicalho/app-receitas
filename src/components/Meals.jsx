@@ -25,13 +25,13 @@ function Meals() {
                 // className=""
                 data-testid={ `${i}-recipe-card` }
               >
-                <p data-testid={ `${i}-card-name` }>{m.strMeal}</p>
                 <img
                   className="img-meals"
                   data-testid={ `${i}-card-img` }
                   src={ m.strMealThumb }
                   alt={ m.strMeal }
                 />
+                <p data-testid={ `${i}-card-name` }>{m.strMeal}</p>
               </div>
             </Link>
           )
