@@ -16,6 +16,6 @@
 .card-meals p {
   display: flex;
   justify-content: center;
-  background-color: yellow;
+  background-color: #FFD41D;
   margin: 10px;
 }

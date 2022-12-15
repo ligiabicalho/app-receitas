@@ -1,7 +1,7 @@
 .header-div {
   display: flex;
   align-items: center;
-  background-color: yellow;
+  background-color: #FFD41D;
   height: 100px;
   justify-content: center;
   width: auto;
@@ -11,6 +11,7 @@
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+  background-color:rgb(14, 14, 170);
 }
 
 #page-tittle {
