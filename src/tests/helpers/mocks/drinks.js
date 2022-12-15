@@ -6,6 +6,7 @@ const shotGlass = 'Shot glass';
 const baileysIrishCream = 'Baileys irish cream';
 const lemonJuice = 'Lemon Juice';
 const coffeeTea = 'Coffee Tea';
+const orangeJuice = 'Orange juice';
 
 const drinks = {
   drinks: [
@@ -749,7 +750,7 @@ const drinks = {
       strIngredient1: 'Red wine',
       strIngredient2: 'Peach schnapps',
       strIngredient3: 'Pepsi Cola',
-      strIngredient4: 'Orange juice',
+      strIngredient4: orangeJuice,
       strIngredient5: null,
       strIngredient6: null,
       strIngredient7: null,
@@ -1078,7 +1079,7 @@ const drinks = {
       strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/wwpyvr1461919316.jpg',
       strIngredient1: 'Vanilla vodka',
       strIngredient2: grandMarnier,
-      strIngredient3: 'Orange juice',
+      strIngredient3: orangeJuice,
       strIngredient4: null,
       strIngredient5: null,
       strIngredient6: null,
@@ -1242,7 +1243,7 @@ const drinks = {
       'strInstructionsZH-HANT': null,
       strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/h5za6y1582477994.jpg',
       strIngredient1: 'Strawberry schnapps',
-      strIngredient2: 'Orange juice',
+      strIngredient2: orangeJuice,
       strIngredient3: 'Cranberry juice',
       strIngredient4: 'Club soda',
       strIngredient5: null,
