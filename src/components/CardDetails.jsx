@@ -4,7 +4,6 @@ import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import AppContext from '../context/AppContext';
 import '../styles/CardDetails.css';
