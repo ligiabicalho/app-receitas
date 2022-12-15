@@ -1,3 +1,7 @@
+const tomatoPuree = 'Tomato Puree';
+const finelyChopped = '1 finely chopped';
+const finelyChopped3 = '3 finely chopped';
+
 const meals = {
   meals: [
     {
@@ -13,7 +17,7 @@ const meals = {
       strIngredient1: 'Lentils',
       strIngredient2: 'Onion',
       strIngredient3: 'Carrots',
-      strIngredient4: 'Tomato Puree',
+      strIngredient4: tomatoPuree,
       strIngredient5: 'Cumin',
       strIngredient6: 'Paprika',
       strIngredient7: 'Mint',
@@ -229,7 +233,7 @@ const meals = {
       strIngredient5: 'Carrots',
       strIngredient6: 'Garlic',
       strIngredient7: 'Minced Beef',
-      strIngredient8: 'Tomato Puree',
+      strIngredient8: tomatoPuree,
       strIngredient9: 'Chopped Tomatoes',
       strIngredient10: 'Honey',
       strIngredient11: 'Lasagne Sheets',
@@ -244,7 +248,7 @@ const meals = {
       strIngredient20: '',
       strMeasure1: '1 tblsp ',
       strMeasure2: '2',
-      strMeasure3: '1 finely chopped ',
+      strMeasure3: finelyChopped,
       strMeasure4: '1 Stick',
       strMeasure5: '1 medium',
       strMeasure6: '2 cloves chopped',
@@ -353,8 +357,8 @@ const meals = {
       strMeasure3: '1 tsp ',
       strMeasure4: '1 tbs',
       strMeasure5: '1 tsp ',
-      strMeasure6: '3 finely chopped',
-      strMeasure7: '3 finely chopped',
+      strMeasure6: finelyChopped3,
+      strMeasure7: finelyChopped3,
       strMeasure8: '6 chopped',
       strMeasure9: '1 Packet',
       strMeasure10: 'Fry',
@@ -811,7 +815,7 @@ const meals = {
       strIngredient4: 'Egg',
       strIngredient5: 'Parmesan',
       strIngredient6: 'Tomato',
-      strIngredient7: 'Tomato Puree',
+      strIngredient7: tomatoPuree,
       strIngredient8: 'Potatoes',
       strIngredient9: '',
       strIngredient10: '',
@@ -1040,8 +1044,8 @@ const meals = {
       strMeasure1: '1 medium',
       strMeasure2: '1 tsp ',
       strMeasure3: '500g',
-      strMeasure4: '1 finely chopped ',
-      strMeasure5: '1 finely chopped ',
+      strMeasure4: finelyChopped,
+      strMeasure5: finelyChopped,
       strMeasure6: '¼ tsp',
       strMeasure7: '¼ tsp',
       strMeasure8: '¼ tsp',
@@ -1145,7 +1149,7 @@ const meals = {
       strIngredient20: '',
       strMeasure1: '1 tbs',
       strMeasure2: '2 chopped',
-      strMeasure3: '1 finely chopped ',
+      strMeasure3: finelyChopped,
       strMeasure4: '1 clove',
       strMeasure5: 'Chopped',
       strMeasure6: '800g',
@@ -1308,7 +1312,7 @@ const meals = {
       strMeasure4: '2 (460g)',
       strMeasure5: '4 (650g)',
       strMeasure6: '2 (280g)',
-      strMeasure7: '3 finely chopped',
+      strMeasure7: finelyChopped3,
       strMeasure8: '3 tbsp',
       strMeasure9: '600ml',
       strMeasure10: '150ml',

@@ -1,3 +1,6 @@
+const springOnions = 'Spring Onions';
+const chickenStock = 'Chicken Stock';
+
 const soupMeals = {
   meals: [
     {
@@ -65,7 +68,7 @@ const soupMeals = {
       strYoutube: 'https://www.youtube.com/watch?v=1ogCfDXotMw',
       strIngredient1: 'Kidney Beans',
       strIngredient2: 'Carrots',
-      strIngredient3: 'Spring Onions',
+      strIngredient3: springOnions,
       strIngredient4: 'Thyme',
       strIngredient5: 'Onion',
       strIngredient6: 'Black Pepper',
@@ -116,7 +119,7 @@ const soupMeals = {
       strMealThumb: 'https://www.themealdb.com/images/media/meals/1529446137.jpg',
       strTags: 'Soup,Baking,Calorific',
       strYoutube: 'https://www.youtube.com/watch?v=9XpzHm9QpZg',
-      strIngredient1: 'Chicken Stock',
+      strIngredient1: chickenStock,
       strIngredient2: 'Salt',
       strIngredient3: 'Sugar',
       strIngredient4: 'Pepper',
@@ -125,7 +128,7 @@ const soupMeals = {
       strIngredient7: 'Mushrooms',
       strIngredient8: 'Cornstarch',
       strIngredient9: 'Water',
-      strIngredient10: 'Spring Onions',
+      strIngredient10: springOnions,
       strIngredient11: '',
       strIngredient12: '',
       strIngredient13: '',
@@ -279,7 +282,7 @@ const soupMeals = {
       strIngredient2: 'Wood Ear Mushrooms',
       strIngredient3: 'Tofu',
       strIngredient4: 'Pork',
-      strIngredient5: 'Chicken Stock',
+      strIngredient5: chickenStock,
       strIngredient6: 'Salt',
       strIngredient7: 'Sugar',
       strIngredient8: 'Sesame Seed Oil',
@@ -289,7 +292,7 @@ const soupMeals = {
       strIngredient12: 'Soy Sauce',
       strIngredient13: 'Cornstarch',
       strIngredient14: 'Water',
-      strIngredient15: 'Spring Onions',
+      strIngredient15: springOnions,
       strIngredient16: '',
       strIngredient17: '',
       strIngredient18: '',
@@ -387,7 +390,7 @@ const soupMeals = {
       strIngredient4: 'Spinach',
       strIngredient5: 'Tomato Puree',
       strIngredient6: 'Cumin',
-      strIngredient7: 'Chicken Stock',
+      strIngredient7: chickenStock,
       strIngredient8: 'Harissa Spice',
       strIngredient9: 'Chickpeas',
       strIngredient10: 'Lemon Juice',
