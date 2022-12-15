@@ -12,6 +12,11 @@
   border-radius: 5px;
   padding: 5px;
   background-color:rgb(14, 14, 170);
+  transition: 0.3s;
+}
+
+.search-profile:hover {
+  background-color: white;
 }
 
 #page-tittle {
