@@ -1,17 +1,17 @@
 .header-div {
-  display: flex;
   align-items: center;
-  background-color: #FFD41D;
+  background-color: #ffd41d;
+  display: flex;
   height: 100px;
   justify-content: center;
   width: auto;
 }
 
 .search-profile {
-  margin: 5px;
+  background-color: rgb(14, 14, 170);
   border-radius: 5px;
+  margin: 5px;
   padding: 5px;
-  background-color:rgb(14, 14, 170);
   transition: 0.3s;
 }
 
@@ -19,14 +19,14 @@
   background-color: white;
 }
 
-#page-tittle {
+.page-tittle {
   display: block;
   text-align: center;
 }
 
-#knife {
-  display: block;
-  text-align: center;
+.knife {
   color: rgb(14, 14, 170);
+  display: block;
   font-size: 10vh;
+  text-align: center;
 }

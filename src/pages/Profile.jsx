@@ -40,7 +40,7 @@ function Profile() {
         >
           { email }
         </h1>
-        <div>
+        <div className="buttons">
           <button
             className="nav-buttons"
             data-testid="profile-done-btn"

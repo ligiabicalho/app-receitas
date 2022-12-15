@@ -30,7 +30,7 @@ function SearchBar() {
     <form onSubmit={ handleSubmit }>
       <label htmlFor="searchBar">
         <input
-          id="seachBar"
+          className="seachBar"
           type="text"
           name="text"
           value={ text }

@@ -3,13 +3,17 @@
 }
 
 .nav-buttons {
-  text-align: center;
-  margin: 0 5px;
   background-color: rgb(14, 14, 170);
-  color: white;
-  padding: 5px;
   border-radius: 5px;
+  color: white;
+  margin: 0 5px;
+  padding: 5px;
   transition: 0.3s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .nav-buttons:hover {
@@ -18,7 +22,7 @@
 }
 
 .div-profile {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }

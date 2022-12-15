@@ -60,11 +60,11 @@ function Header({ title }) {
             : ''}
         </div>
       </header>
-      <h1 id="page-tittle" data-testid="page-title">{title}</h1>
+      <h1 className="page-tittle" data-testid="page-title">{title}</h1>
       {history.location.pathname === '/meals'
-        && <h2 id="knife"><GiKnifeFork /></h2>}
+        && <h2 className="knife"><GiKnifeFork /></h2>}
       {history.location.pathname === '/drinks'
-        && <h2 id="knife"><BiDrink /></h2>}
+        && <h2 className="knife"><BiDrink /></h2>}
     </div>
   );
 }

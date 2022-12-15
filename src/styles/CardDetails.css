@@ -6,13 +6,13 @@
   width: 300px;
 } */
 
-.img-title  {
+.img-title {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.img-title img  {
+.img-title img {
   width: 250px;
 }
 
@@ -21,15 +21,15 @@
 }
 
 .share-like button img {
-  width: 50px;
   height: 50px;
   padding: 5px;
+  width: 50px;
 }
 
 .share-like button {
-  background-color: #FFD41D;
-  margin: 10px;
+  background-color: #ffd41d;
   border-radius: 5px;
+  margin: 10px;
   transition: 0.3s;
 }
 
@@ -38,21 +38,21 @@
 }
 
 .resto {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .instructions {
-  width: 250px;
   text-align: center;
+  width: 250px;
 }
 
 .start-finish-btn {
-  background-color: #FFD41D;
-  padding: 5px 100px;
+  background-color: #ffd41d;
   margin: 25px;
+  padding: 5px 100px;
   transition: 0.3s;
 }
 

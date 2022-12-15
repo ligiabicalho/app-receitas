@@ -1,6 +1,6 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .body {
@@ -8,58 +8,56 @@
 }
 
 .login-page {
-  height: 100vh;
   background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/2225459-conceito-de-comida-e-cozinha-saudavel-com-uma-espatula-de-madeira-e-vegetais-no-fundo-de-pedra-escura-gratis-foto.jpg');
+  height: 100vh;
 }
 
 .form-login {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-#login-h1 {
+.login-h1 {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .input-login {
-  padding: 5px;
-  max-width: 200px;
+  border-color: #ffd41d;
   border-radius: 7px;
-  border-color: #FFD41D;
+  max-width: 200px;
+  padding: 5px;
+  width: 300px;
 }
+
 .input-login::placeholder {
   color: black;
   opacity: 0.4;
   padding-left: 11vh;
 }
 
-#login-h1 h1 {
-  color: #FFD41D;
+.login-h1 h1 {
+  color: #ffd41d;
 }
 
-#login-h1 img {
-  width: 300px;
-}
-
-.input-login {
+.login-h1 img {
   width: 300px;
 }
 
 .button-login {
-  background-color: #FFD41D;
-  color: white;
-  padding: 5px 7px;
+  background-color: #ffd41d;
   border-radius: 7px;
-  transition: 0.3s;
+  color: white;
   cursor: pointer;
+  padding: 5px 7px;
+  transition: 0.3s;
 }
 
 .button-login:hover {
   background-color: white;
-  border-color: #FFD41D;
-  color: #FFD41D;
+  border-color: #ffd41d;
+  color: #ffd41d;
 }

@@ -9,13 +9,13 @@
 
 .card-meals {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card-meals p {
+  background-color: #ffd41d;
   display: flex;
   justify-content: center;
-  background-color: #FFD41D;
   margin: 10px;
 }
