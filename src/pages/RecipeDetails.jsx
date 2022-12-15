@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
-import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import Recomended from '../components/Recomended';
 import CardDetails from '../components/CardDetails';
-import AppContext from '../context/AppContext';
-import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
 import '../styles/RecipeDetails.css';
 import FavoriteBtn from '../components/FavoriteBtn';
@@ -14,6 +10,7 @@ import FavoriteBtn from '../components/FavoriteBtn';
 function RecipeDetails() {
   const { id } = useParams();
   const location = useLocation().pathname;
+  const history = useHistory();
 
   if (location.includes('drinks')) {
     return (
