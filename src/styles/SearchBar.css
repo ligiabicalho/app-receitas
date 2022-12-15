@@ -1,0 +1,10 @@
+#seachBar {
+  max-width: 150px;
+}
+
+.search-input {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(14, 14, 170);
+  color: white;
+}

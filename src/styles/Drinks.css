@@ -1,6 +1,7 @@
 /* body {
   background-image: url('https://img.freepik.com/vetores-premium/ilustracao-de-cor-dos-desenhos-animados-de-fast-food_7243-196.jpg?w=2000');
 } */
+  
 
 .card-meals img {
   max-width: 300px;
@@ -11,11 +12,4 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.card-meals p {
-  display: flex;
-  justify-content: center;
-  background-color: yellow;
-  margin: 10px;
 }

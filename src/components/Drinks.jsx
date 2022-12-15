@@ -4,6 +4,7 @@ import Footer from './Footer';
 import AppContext from '../context/AppContext';
 import Header from './Header';
 import BtnFilter from './BtnFilter';
+import '../styles/Drinks.css';
 
 function Drinks() {
   const { drinks } = useContext(AppContext);
@@ -12,7 +13,7 @@ function Drinks() {
     <div>
       <Header title="Drinks" />
       <BtnFilter />
-      <section data-testid="drinks-div">
+      <section className="card-meals" data-testid="drinks-div">
         {drinks.length > 0 && drinks.map((d, i) => (
           i <= eleven
           && (

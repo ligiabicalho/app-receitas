@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { GiKnifeFork } from 'react-icons/gi';
+import { BiDrink } from 'react-icons/bi';
 import ProfilePicture from '../images/profileIcon.svg';
 import SearchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
@@ -23,10 +25,18 @@ function Header({ title }) {
   };
 
   return (
-    <div>
+    <div className="body">
       <header className="header-div">
-        <div>
-          <button onClick={ handleClick } type="button">
+        {/* <div className="logo-div">
+          <img className="logo" src="https://i.pinimg.com/originals/ce/58/ac/ce58ac51f8c46cc817940d962e3e1f61.png" alt="logo" />
+          <h5>
+            <strong>
+              App De Receitas
+            </strong>
+          </h5>
+        </div> */}
+        <div id="header-buttons">
+          <button className="search-profile" onClick={ handleClick } type="button">
             <img
               src={ ProfilePicture }
               alt="imagem de perfil"
@@ -35,7 +45,7 @@ function Header({ title }) {
           </button>
           {((title === 'Meals' || title === 'Drinks')
             ? (
-              <button onClick={ handleBtnClick } type="button">
+              <button className="search-profile" onClick={ handleBtnClick } type="button">
                 <img
                   src={ SearchIcon }
                   alt="ícone de pesquisa"
@@ -50,7 +60,9 @@ function Header({ title }) {
             : ''}
         </div>
       </header>
-      <h1 data-testid="page-title">{title}</h1>
+      <h1 id="page-tittle" data-testid="page-title">{title}</h1>
+      {history.location.pathname === '/meals'
+        ? <h2 id="knife"><GiKnifeFork /></h2> : <h2 id="knife"><BiDrink /></h2>}
     </div>
   );
 }
