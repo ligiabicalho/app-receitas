@@ -4,10 +4,10 @@ import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import AppContext from '../context/AppContext';
 import '../styles/CardDetails.css';
+import FavoriteBtn from './FavoriteBtn';
 
 function CardDetails(props) {
   const { type, id } = props;
@@ -114,9 +114,7 @@ function CardDetails(props) {
           >
             <img src={ shareIcon } alt="share button" />
           </button>
-          <button data-testid="favorite-btn" type="button">
-            <img src={ whiteHeart } alt="favorite button" />
-          </button>
+          <FavoriteBtn id={ id } />
           {copyState ? <p>Link copied!</p> : ''}
         </div>
       </div>
@@ -130,23 +128,24 @@ function CardDetails(props) {
         <h2>Ingredientes</h2>
         {ingredients.map((ingredient, index) => (
           <label
-            htmlFor="p"
+            data-testid={ `${index}-ingredient-step` }
             className="checked"
+            htmlFor="input"
             key={ index }
           >
             {ingredient !== undefined
-              && ingredient !== null
-              && ingredient !== ''
-              && <input type="checkbox" data-testid="ingredient-step" />}
+                && ingredient !== null
+                && ingredient !== ''
+                && <input type="checkbox" />}
             <span
+              key={ index }
               data-testid={ `${index}-ingredient-name-and-measure` }
             >
               {ingredient !== undefined
-              && ingredient !== null
-              && `${ingredient} ${measures[index]}`}
+                && ingredient !== null
+                && `${ingredient} ${measures[index]}`}
             </span>
-          </label>
-        ))}
+          </label>))}
         <div className="instructions">
           <h2>Instruções</h2>
           <p
