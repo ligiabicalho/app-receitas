@@ -64,3 +64,12 @@
   background-color: white;
 }
 
+.checked {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.checked input:checked + span {
+  text-decoration: line-through;
+}

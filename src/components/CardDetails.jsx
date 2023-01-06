@@ -4,10 +4,10 @@ import { useEffect, useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import { inProgress } from '../services/localStorage';
 import shareIcon from '../images/shareIcon.svg';
+import whiteHeart from '../images/whiteHeartIcon.svg';
 import { fetchDrinkDetails, fetchMealDetails } from '../services/fetchAPI';
 import AppContext from '../context/AppContext';
 import '../styles/CardDetails.css';
-import FavoriteBtn from './FavoriteBtn';
 
 function CardDetails(props) {
   const { type, id } = props;
@@ -114,7 +114,9 @@ function CardDetails(props) {
           >
             <img src={ shareIcon } alt="share button" />
           </button>
-          <FavoriteBtn id={ id } />
+          <button data-testid="favorite-btn" type="button">
+            <img src={ whiteHeart } alt="favorite button" />
+          </button>
           {copyState ? <p>Link copied!</p> : ''}
         </div>
       </div>
@@ -127,14 +129,24 @@ function CardDetails(props) {
         </p>
         <h2>Ingredientes</h2>
         {ingredients.map((ingredient, index) => (
-          <p
+          <label
+            htmlFor="p"
+            className="checked"
             key={ index }
-            data-testid={ `${index}-ingredient-name-and-measure` }
           >
             {ingredient !== undefined
               && ingredient !== null
+              && ingredient !== ''
+              && <input type="checkbox" data-testid="ingredient-step" />}
+            <span
+              data-testid={ `${index}-ingredient-name-and-measure` }
+            >
+              {ingredient !== undefined
+              && ingredient !== null
               && `${ingredient} ${measures[index]}`}
-          </p>))}
+            </span>
+          </label>
+        ))}
         <div className="instructions">
           <h2>Instruções</h2>
           <p
