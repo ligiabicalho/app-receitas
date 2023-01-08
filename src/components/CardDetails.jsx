@@ -127,14 +127,25 @@ function CardDetails(props) {
         </p>
         <h2>Ingredientes</h2>
         {ingredients.map((ingredient, index) => (
-          <p
+          <label
+            data-testid={ `${index}-ingredient-step` }
+            className="checked"
+            htmlFor="input"
             key={ index }
-            data-testid={ `${index}-ingredient-name-and-measure` }
           >
             {ingredient !== undefined
-              && ingredient !== null
-              && `${ingredient} ${measures[index]}`}
-          </p>))}
+                && ingredient !== null
+                && ingredient !== ''
+                && <input type="checkbox" />}
+            <span
+              key={ index }
+              data-testid={ `${index}-ingredient-name-and-measure` }
+            >
+              {ingredient !== undefined
+                && ingredient !== null
+                && `${ingredient} ${measures[index]}`}
+            </span>
+          </label>))}
         <div className="instructions">
           <h2>Instruções</h2>
           <p
