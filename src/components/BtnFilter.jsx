@@ -61,15 +61,6 @@ function BtnFilter() {
           </button>
         )
       )))}
-      { (pathname === '/meals') && buttonAll && (
-        <button
-          className="filters"
-          type="button"
-          data-testid="All-category-filter"
-          onClick={ handleAllMeal }
-        >
-          All
-        </button>)}
       { (pathname === '/drinks') && (drinkCathegory.map((d, i) => (
         i < cinco && (
           <button
@@ -83,12 +74,12 @@ function BtnFilter() {
           </button>
         )
       )))}
-      { (pathname === '/drinks') && buttonAll && (
+      { buttonAll && (
         <button
           className="filters"
           type="button"
           data-testid="All-category-filter"
-          onClick={ handleAllDrink }
+          onClick={ (pathname === '/meals') ? handleAllMeal : handleAllDrink }
         >
           All
         </button>)}

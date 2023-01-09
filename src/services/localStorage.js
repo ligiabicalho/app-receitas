@@ -1,3 +1,7 @@
+if (!JSON.parse(localStorage.getItem('doneRecipes'))) {
+  localStorage.setItem('doneRecipes', JSON.stringify([]));
+}
+
 export const getUserEmail = () => JSON.parse(localStorage.getItem('user'));
 
 export const saveUserEmail = (email) => localStorage
@@ -9,7 +13,3 @@ export const inProgress = () => {
     ? JSON.parse(progressJson) : { drinks: {}, meals: {} };
   return progressValidation;
 };
-
-/* if (!JSON.parse(localStorage.getItem('favoriteRecipes'))) {
-  localStorage.setItem('favoriteRecipes', JSON.stringify([]));
-} */

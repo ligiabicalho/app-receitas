@@ -2,7 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWith';
-import AppContext from '../context/AppProvider';
+import AppProvider from '../context/AppProvider';
 import App from '../App';
 import { getUserEmail } from '../services/localStorage';
 import '@testing-library/jest-dom';
@@ -13,7 +13,7 @@ describe('Testando se no componente Login...', () => {
   const ID_LOGIN_BTN = 'login-submit-btn';
 
   test('se email, senha e o botão Enter são renderizados corretamente', () => {
-    renderWithRouter(<AppContext><App /></AppContext>, {});
+    renderWithRouter(<AppProvider><App /></AppProvider>, {});
 
     const emailField = screen.getByTestId(ID_EMAIL);
     const passwordField = screen.getByTestId(ID_PASSWORD);
@@ -26,7 +26,7 @@ describe('Testando se no componente Login...', () => {
   });
 
   test('se o botao Enter permanece desabilitado com email e senha errados', () => {
-    renderWithRouter(<AppContext><App /></AppContext>, {});
+    renderWithRouter(<AppProvider><App /></AppProvider>, {});
 
     const emailField = screen.getByTestId(ID_EMAIL);
     const passwordField = screen.getByTestId(ID_PASSWORD);
@@ -40,7 +40,7 @@ describe('Testando se no componente Login...', () => {
     expect(loginBtn).toBeDisabled();
   });
   test('se as funções de formato de email e habilitar o botão Enter funcionam corretamente', () => {
-    renderWithRouter(<AppContext><App /></AppContext>, {});
+    renderWithRouter(<AppProvider><App /></AppProvider>, {});
 
     const emailField = screen.getByTestId(ID_EMAIL);
     const passwordField = screen.getByTestId(ID_PASSWORD);
