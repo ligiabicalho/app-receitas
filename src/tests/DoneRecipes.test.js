@@ -7,6 +7,7 @@ import '@testing-library/jest-dom';
 import App from '../App';
 
 describe('Testa a pagina Done Recipes', () => {
+  const idHorizName0 = '0-horizontal-name';
   const doneRecipes = [
     {
       id: '52771',
@@ -58,7 +59,7 @@ describe('Testa a pagina Done Recipes', () => {
     expect(filterAll).toBeInTheDocument();
     userEvent.click(filterAll);
 
-    const doneRecipe0 = screen.getByTestId('0-horizontal-name');
+    const doneRecipe0 = screen.getByTestId(idHorizName0);
     expect(doneRecipe0).toHaveTextContent(doneRecipes[0].name);
 
     const doneRecipe1 = screen.getByTestId('1-horizontal-name');
@@ -69,7 +70,7 @@ describe('Testa a pagina Done Recipes', () => {
     expect(filterDrinks).toBeInTheDocument();
 
     userEvent.click(filterDrinks);
-    const drinkDoneRecipe = screen.getByTestId('0-horizontal-name');
+    const drinkDoneRecipe = screen.getByTestId(idHorizName0);
     expect(drinkDoneRecipe).toHaveTextContent(doneRecipes[1].name);
   });
   it('se os botões de filtrar por drink é renderizados na tela e funciona corretamente', () => {
@@ -77,7 +78,7 @@ describe('Testa a pagina Done Recipes', () => {
     expect(filterMeals).toBeInTheDocument();
 
     userEvent.click(filterMeals);
-    const mealDoneRecipe = screen.getByTestId('0-horizontal-name');
+    const mealDoneRecipe = screen.getByTestId(idHorizName0);
     expect(mealDoneRecipe).toHaveTextContent(doneRecipes[0].name);
   });
 });
