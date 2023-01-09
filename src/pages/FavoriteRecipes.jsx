@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import copy from 'clipboard-copy';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import blackHeart from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 import '../styles/Favorites.css';
-import { Link } from 'react-router-dom';
 
 function FavoriteRecipes() {
   const [filter, setFilter] = useState('all');
@@ -22,6 +22,7 @@ function FavoriteRecipes() {
     const mealFiltered = localFavorites.filter((e) => e.type === 'meal');
     setFavorited(mealFiltered);
     setFilter('meal');
+    console.log(filter);
   };
 
   const filterDrinks = () => {
