@@ -11,7 +11,27 @@ function FavoriteRecipes() {
   const [favorited, setFavorited] = useState([]);
   const [copied, setCopied] = useState('');
   useEffect(() => {
-    const localFavorites = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    // const localFavorites = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    const localFavorites = [
+      {
+        id: '52771',
+        type: 'meal',
+        nationality: 'Italian',
+        category: 'Vegetarian',
+        alcoholicOrNot: '',
+        name: 'Spicy Arrabiata Penne',
+        image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
+      },
+      {
+        id: '178319',
+        type: 'drink',
+        nationality: '',
+        category: 'Cocktail',
+        alcoholicOrNot: 'Alcoholic',
+        name: 'Aquamarine',
+        image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
+      },
+    ];
     if (localFavorites !== null) {
       setFavorited(localFavorites);
     }
@@ -112,7 +132,8 @@ function FavoriteRecipes() {
               setCopied(e.id);
             } }
           >
-            {e.id === copied ? 'Link copied!'
+            {e.id === copied
+              ? <p data-testid={ `${index}-horizontal-share-btn` }>Link copied!</p>
               : (
                 <img
                   src={ shareIcon }
