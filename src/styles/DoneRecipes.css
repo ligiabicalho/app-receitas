@@ -1,0 +1,20 @@
+.done-fave-line {
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.done-fave-images {
+  max-width: 150px;
+  width: 150px;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.icons {
+  margin-left: 1rem;
+  width: 5%;
+}
