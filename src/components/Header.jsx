@@ -27,14 +27,6 @@ function Header({ title }) {
   return (
     <div className="body">
       <header className="header-div">
-        {/* <div className="logo-div">
-          <img className="logo" src="https://i.pinimg.com/originals/ce/58/ac/ce58ac51f8c46cc817940d962e3e1f61.png" alt="logo" />
-          <h5>
-            <strong>
-              App De Receitas
-            </strong>
-          </h5>
-        </div> */}
         <div id="header-buttons">
           <button className="search-profile" onClick={ handleClick } type="button">
             <img
