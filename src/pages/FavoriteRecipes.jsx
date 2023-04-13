@@ -127,7 +127,8 @@ function FavoriteRecipes() {
             type="button"
             className="icons"
             onClick={ () => {
-              copy(e.type === 'meal' ? `${window.location.origin}/app-receitas/meals/${e.id}`
+              copy(e.type === 'meal'
+                ? `${window.location.origin}/app-receitas/meals/${e.id}`
                 : `${window.location.origin}/app-receitas/drinks/${e.id}`);
               setCopied(e.id);
             } }

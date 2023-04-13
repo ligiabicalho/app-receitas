@@ -1,4 +1,4 @@
-import { fetchIngredients, fetchName, fetchFirstLetter } from './fetchAPI';
+import { fetchIngredients, fetchName, fetchFirstLetter, meals } from './fetchAPI';
 
 export const searchIngredients = async (history, search, setMeals, setDrinks) => {
   const recipeIngredients = await fetchIngredients(search, history.location);
@@ -7,7 +7,7 @@ export const searchIngredients = async (history, search, setMeals, setDrinks) =>
     setMeals(recipeIngredients);
     setDrinks(recipeIngredients);
     if (recipeIngredients?.length === 1) {
-      return history.location.pathname === '/app-receitas/meals'
+      return history.location.pathname.includes(meals)
         ? history.push(`/app-receitas/meals/${recipeIngredients[0].idMeal}`)
         : history.push(`/app-receitas/drinks/${recipeIngredients[0].idDrink}`);
     }
@@ -21,7 +21,7 @@ export const searchName = async (history, search, setMeals, setDrinks) => {
     setDrinks(recipeName);
     console.log('recipeName', recipeName);
     if (recipeName?.length === 1) {
-      return history.location.pathname === '/app-receitas/meals'
+      return history.location.pathname.includes(meals)
         ? history.push(`/app-receitas/meals/${recipeName[0].idMeal}`)
         : history.push(`/app-receitas/drinks/${recipeName[0].idDrink}`);
     }
@@ -35,7 +35,7 @@ export const searchFirst = async (history, search, setMeals, setDrinks) => {
     setDrinks(recipeFirst);
     console.log('recipeFirst', recipeFirst);
     if (recipeFirst?.length === 1) {
-      return history.location.pathname === '/app-receitas/meals'
+      return history.location.pathname.includes(meals)
         ? history.push(`/app-receitas/meals/${recipeFirst[0].idMeal}`)
         : history.push(`/app-receitas/drinks/${recipeFirst[0].idDrink}`);
     }

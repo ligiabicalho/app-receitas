@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 import RenderWithRouter from './helpers/RenderWithRouter';
 import App from '../App';
-import fetchModules from '../../cypress/mocks/fetch';
+import fetchModules from './helpers/mocks/fetch';
 import '@testing-library/jest-dom';
 
 describe('testa as branches da tela RecipeDetails', () => {

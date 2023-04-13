@@ -58,7 +58,8 @@ function CardDoneFave(props) {
           type="button"
           className="icons"
           onClick={ () => {
-            copy(recipe.type === 'meal' ? `${window.location.origin}/app-receitas/meals/${recipe.id}`
+            copy(recipe.type === 'meal'
+              ? `${window.location.origin}/app-receitas/meals/${recipe.id}`
               : `${window.location.origin}/app-receitas/drinks/${recipe.id}`);
             setCopied(recipe.id);
           } }

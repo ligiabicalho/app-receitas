@@ -79,7 +79,9 @@ function BtnFilter() {
           className="filters"
           type="button"
           data-testid="All-category-filter"
-          onClick={ (pathname === '/app-receitas/meals') ? handleAllMeal : handleAllDrink }
+          onClick={ (pathname === '/app-receitas/meals')
+            ? handleAllMeal
+            : handleAllDrink }
         >
           All
         </button>)}
