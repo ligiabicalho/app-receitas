@@ -17,24 +17,24 @@ describe('testa as branches da tela RecipeDetails', () => {
   it('testa a tela Recipe Details', async () => {
     const { history } = RenderWithRouter(<App />);
     act(() => {
-      history.push('/drinks');
+      history.push('/app-receitas/drinks');
     });
 
     const firstElement = await screen.findByTestId('0-card-name');
     expect(firstElement).toBeInTheDocument();
     userEvent.click(firstElement);
-    expect(history.location.pathname).toBe('/drinks/15997');
+    expect(history.location.pathname).toBe('/app-receitas/drinks/15997');
     const recipeTitle = await screen.findByRole('heading', { level: 1, name: 'GG' });
     expect(recipeTitle).toBeInTheDocument();
 
     const btnProgress = await screen.findByTestId('start-recipe-btn');
     userEvent.click(btnProgress);
-    expect(history.location.pathname).toBe('/drinks/15997/in-progress');
+    expect(history.location.pathname).toBe('/app-receitas/drinks/15997/in-progress');
   });
   it('testa a tela Recipe Details', () => {
     const { history } = RenderWithRouter(<App />);
     act(() => {
-      history.push('/drinks');
+      history.push('/app-receitas/drinks');
     });
 
     const testElement = screen.queryByText(/test/i);

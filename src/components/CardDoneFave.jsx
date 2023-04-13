@@ -11,8 +11,8 @@ function CardDoneFave(props) {
     recipes.map((recipe, index) => (
       <div key={ recipe.id } className="done-fave-line">
         <Link
-          to={ recipe.type === 'meal' ? `/meals/${recipe.id}`
-            : `/drinks/${recipe.id}` }
+          to={ recipe.type === 'meal' ? `/app-receitas/meals/${recipe.id}`
+            : `/app-receitas/drinks/${recipe.id}` }
         >
           <img
             src={ recipe.image }
@@ -58,8 +58,8 @@ function CardDoneFave(props) {
           type="button"
           className="icons"
           onClick={ () => {
-            copy(recipe.type === 'meal' ? `${window.location.origin}/meals/${recipe.id}`
-              : `${window.location.origin}/drinks/${recipe.id}`);
+            copy(recipe.type === 'meal' ? `${window.location.origin}/app-receitas/meals/${recipe.id}`
+              : `${window.location.origin}/app-receitas/drinks/${recipe.id}`);
             setCopied(recipe.id);
           } }
         >

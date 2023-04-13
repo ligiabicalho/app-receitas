@@ -8,7 +8,7 @@ function RecipeDetails() {
   const location = useLocation().pathname;
 
   switch (location) {
-  case `/drinks/${id}`:
+  case `/app-receitas/drinks/${id}`:
     return (
       <div>
         <CardDetails

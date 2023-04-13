@@ -7,9 +7,9 @@ export const searchIngredients = async (history, search, setMeals, setDrinks) =>
     setMeals(recipeIngredients);
     setDrinks(recipeIngredients);
     if (recipeIngredients?.length === 1) {
-      return history.location.pathname === '/meals'
-        ? history.push(`/meals/${recipeIngredients[0].idMeal}`)
-        : history.push(`/drinks/${recipeIngredients[0].idDrink}`);
+      return history.location.pathname === '/app-receitas/meals'
+        ? history.push(`/app-receitas/meals/${recipeIngredients[0].idMeal}`)
+        : history.push(`/app-receitas/drinks/${recipeIngredients[0].idDrink}`);
     }
   } else global.alert(alert);
 };
@@ -21,9 +21,9 @@ export const searchName = async (history, search, setMeals, setDrinks) => {
     setDrinks(recipeName);
     console.log('recipeName', recipeName);
     if (recipeName?.length === 1) {
-      return history.location.pathname === '/meals'
-        ? history.push(`/meals/${recipeName[0].idMeal}`)
-        : history.push(`/drinks/${recipeName[0].idDrink}`);
+      return history.location.pathname === '/app-receitas/meals'
+        ? history.push(`/app-receitas/meals/${recipeName[0].idMeal}`)
+        : history.push(`/app-receitas/drinks/${recipeName[0].idDrink}`);
     }
   } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
 };
@@ -35,9 +35,9 @@ export const searchFirst = async (history, search, setMeals, setDrinks) => {
     setDrinks(recipeFirst);
     console.log('recipeFirst', recipeFirst);
     if (recipeFirst?.length === 1) {
-      return history.location.pathname === '/meals'
-        ? history.push(`/meals/${recipeFirst[0].idMeal}`)
-        : history.push(`/drinks/${recipeFirst[0].idDrink}`);
+      return history.location.pathname === '/app-receitas/meals'
+        ? history.push(`/app-receitas/meals/${recipeFirst[0].idMeal}`)
+        : history.push(`/app-receitas/drinks/${recipeFirst[0].idDrink}`);
     }
   } else global.alert('Sorry, we haven\'t found any recipes for these filters.');
 };

@@ -17,18 +17,18 @@ describe('testa as branches da tela RecipeDetails', () => {
   it('testa a tela Recipe Details', async () => {
     const { history } = RenderWithRouter(<App />);
     act(() => {
-      history.push('/meals');
+      history.push('/app-receitas/meals');
     });
 
     const firstElement = await screen.findByTestId('0-card-name');
     expect(firstElement).toBeInTheDocument();
     userEvent.click(firstElement);
-    expect(history.location.pathname).toBe('/meals/52977');
+    expect(history.location.pathname).toBe('/app-receitas/meals/52977');
     const recipeTitle = await screen.findByRole('heading', { level: 1, name: 'Spicy Arrabiata Penne' });
     expect(recipeTitle).toBeInTheDocument();
 
     const btnProgress = await screen.findByTestId('start-recipe-btn');
     userEvent.click(btnProgress);
-    expect(history.location.pathname).toBe('/meals/52977/in-progress');
+    expect(history.location.pathname).toBe('/app-receitas/meals/52977/in-progress');
   });
 });

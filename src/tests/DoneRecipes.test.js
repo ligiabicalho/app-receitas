@@ -49,7 +49,7 @@ describe('Testa a pagina Done Recipes', () => {
     userEvent.click(doneBtn);
 
     const { pathname } = history.location;
-    expect(pathname).toBe('/done-recipes');
+    expect(pathname).toBe('/app-receitas/done-recipes');
 
     localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
   });

@@ -45,7 +45,7 @@ describe('Testa a pagina Favorite Recipes', () => {
     userEvent.click(faveBtn);
 
     const { pathname } = history.location;
-    expect(pathname).toBe('/favorite-recipes');
+    expect(pathname).toBe('/app-receitas/favorite-recipes');
 
     localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
   });

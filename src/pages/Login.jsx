@@ -30,7 +30,7 @@ export default function Login({ history }) {
 
   const handleClick = () => {
     saveUserEmail(login.email);
-    history.push('/meals');
+    history.push('/app-receitas/meals');
   };
 
   return (

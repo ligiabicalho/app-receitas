@@ -1,11 +1,11 @@
 export const fetchIngredients = async (search, location) => {
-  if (location.pathname === '/meals') {
+  if (location.pathname === '/app-receitas/meals') {
     const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`;
     const response = await fetch(url);
     const recipes = await response.json();
     return recipes.meals;
   }
-  if (location.pathname === '/drinks') {
+  if (location.pathname === '/app-receitas/drinks') {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${search}`;
     const response = await fetch(url);
     const recipes = await response.json();
@@ -14,13 +14,13 @@ export const fetchIngredients = async (search, location) => {
 };
 
 export const fetchName = async (search, location) => {
-  if (location.pathname === '/meals') {
+  if (location.pathname === '/app-receitas/meals') {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`;
     const response = await fetch(url);
     const recipes = await response.json();
     return recipes.meals;
   }
-  if (location.pathname === '/drinks') {
+  if (location.pathname === '/app-receitas/drinks') {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`;
     const response = await fetch(url);
     const recipes = await response.json();
@@ -30,13 +30,13 @@ export const fetchName = async (search, location) => {
 
 export const fetchFirstLetter = async (search, location) => {
   try {
-    if (location.pathname === '/meals') {
+    if (location.pathname === '/app-receitas/meals') {
       const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${search}`;
       const response = await fetch(url);
       const recipes = await response.json();
       return recipes.meals;
     }
-    if (location.pathname === '/drinks') {
+    if (location.pathname === '/app-receitas/drinks') {
       const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${search}`;
       const response = await fetch(url);
       const recipes = await response.json();

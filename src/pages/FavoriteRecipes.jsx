@@ -85,8 +85,8 @@ function FavoriteRecipes() {
       {favorited.map((e, index) => (
         <div key={ e.id } className="favorite-line">
           <Link
-            to={ e.type === 'meal' ? `/meals/${e.id}`
-              : `/drinks/${e.id}` }
+            to={ e.type === 'meal' ? `/app-receitas/meals/${e.id}`
+              : `/app-receitas/drinks/${e.id}` }
           >
             <img
               src={ e.image }
@@ -106,8 +106,8 @@ function FavoriteRecipes() {
             { e.category }
           </p>
           <Link
-            to={ e.type === 'meal' ? `/meals/${e.id}`
-              : `/drinks/${e.id}` }
+            to={ e.type === 'meal' ? `/app-receitas/meals/${e.id}`
+              : `/app-receitas/drinks/${e.id}` }
           >
             <p
               className="text"
@@ -127,8 +127,8 @@ function FavoriteRecipes() {
             type="button"
             className="icons"
             onClick={ () => {
-              copy(e.type === 'meal' ? `${window.location.origin}/meals/${e.id}`
-                : `${window.location.origin}/drinks/${e.id}`);
+              copy(e.type === 'meal' ? `${window.location.origin}/app-receitas/meals/${e.id}`
+                : `${window.location.origin}/app-receitas/drinks/${e.id}`);
               setCopied(e.id);
             } }
           >

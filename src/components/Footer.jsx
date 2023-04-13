@@ -8,11 +8,11 @@ function Footer() {
   const history = useHistory();
 
   const handleMealClick = () => {
-    history.push('/meals');
+    history.push('/app-receitas/meals');
   };
 
   const handleDrinkClick = () => {
-    history.push('/drinks');
+    history.push('/app-receitas/drinks');
   };
 
   return (

@@ -19,7 +19,7 @@ function Drinks() {
           && (
             <Link
               key={ d.idDrink }
-              to={ `/drinks/${d.idDrink}` }
+              to={ `/app-receitas/drinks/${d.idDrink}` }
               data-testid={ `link-${i}` }
             >
               <div

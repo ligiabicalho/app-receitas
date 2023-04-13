@@ -53,7 +53,7 @@ describe('Testando se no componente Login...', () => {
     expect(passwordField).toBeInTheDocument();
     expect(loginBtn).not.toBeDisabled();
     userEvent.click(screen.getByRole('button', { name: 'Enter' }));
-    // expect(history.location.pathname).toBe('/meals');
+    // expect(history.location.pathname).toBe('/app-receitas/meals');
 
     const userLocalStorage = getUserEmail();
     expect(userLocalStorage.email).toContain('teste@test.com');

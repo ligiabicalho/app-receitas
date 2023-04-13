@@ -18,16 +18,16 @@ function Profile() {
   const history = useHistory();
 
   const toDoneRecipes = () => {
-    history.push('/done-recipes');
+    history.push('/app-receitas/done-recipes');
   };
 
   const toFavoriteRecipes = () => {
-    history.push('/favorite-recipes');
+    history.push('/app-receitas/favorite-recipes');
   };
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push('/');
+    history.push('/app-receitas');
   };
 
   return (

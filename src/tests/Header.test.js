@@ -20,9 +20,9 @@ describe('Testa o componente Header', () => {
     expect(title).not.toBeInTheDocument();
   });
 
-  test('se na página "/meals", o Header e seus elementos são renderizados', async () => {
+  test('se na página "/app-receitas/meals", o Header e seus elementos são renderizados', async () => {
     RenderWithRouter(<AppProvider><Meals /></AppProvider>);
-    const meals = screen.getByText(/meals/i);
+    const meals = screen.getByText(/app-receitas/meals/i);
     const profilePic = screen.getByTestId('profile-top-btn');
     const searchIcon = screen.getByTestId(seachId);
     const input = screen.queryByTestId('search-input');
@@ -42,28 +42,28 @@ describe('Testa o componente Header', () => {
       expect(input).not.toBeInTheDocument();
     });
   });
-  test('se ao clicar no botão profile, é redirecionado para a rota "/profile"', () => {
+  test('se ao clicar no botão profile, é redirecionado para a rota "/app-receitas/profile"', () => {
     const { history } = RenderWithRouter(<AppProvider><Meals /></AppProvider>);
     const profilePic = screen.getByTestId('profile-top-btn');
     userEvent.click(profilePic);
     const { pathname } = history.location;
-    expect(pathname).toBe('/profile');
+    expect(pathname).toBe('/app-receitas/profile');
   });
-  test('se na página "/drinks", o Header e seus elementos são renderizados', () => {
+  test('se na página "/app-receitas/drinks", o Header e seus elementos são renderizados', () => {
     RenderWithRouter(<AppProvider><Drinks /></AppProvider>);
-    const drinks = screen.getByText(/drinks/i);
+    const drinks = screen.getByText(/app-receitas/drinks/i);
     const searchIcon = screen.queryByTestId(seachId);
     expect(drinks).toBeInTheDocument();
     expect(searchIcon).toBeInTheDocument();
   });
-  test('se na página "/profile", o Header e seus elementos são renderizados', () => {
+  test('se na página "/app-receitas/profile", o Header e seus elementos são renderizados', () => {
     RenderWithRouter(<AppProvider><Profile /></AppProvider>);
-    const profile = screen.getByText(/profile/i);
+    const profile = screen.getByText(/app-receitas/profile/i);
     const searchIcon = screen.queryByTestId(seachId);
     expect(profile).toBeInTheDocument();
     expect(searchIcon).not.toBeInTheDocument();
   });
-  test('se na página "/drinks", o Header e seus elementos são renderizados', async () => {
+  test('se na página "/app-receitas/drinks", o Header e seus elementos são renderizados', async () => {
     const { history } = RenderWithRouter(<AppProvider><Drinks /></AppProvider>);
     const drinks = await screen.findByTestId('page-title');
     const section = await screen.findByTestId('drinks-div');
@@ -72,7 +72,7 @@ describe('Testa o componente Header', () => {
     const { pathname } = history.location;
 
     waitFor(() => {
-      expect(pathname).toBe('/drinks');
+      expect(pathname).toBe('/app-receitas/drinks');
       expect(section.childElementCount).toEqual('12');
       expect(section.childElementCount).not.toBeGreaterThan('12');
       expect(section.childElementCount).not.toBeLessThan('12');
@@ -81,7 +81,7 @@ describe('Testa o componente Header', () => {
       expect(recipeNotInTheDocument).not.toBeInTheDocument();
     });
   });
-  test('se na página "/meals" as receitas são renderizadas', async () => {
+  test('se na página "/app-receitas/meals" as receitas são renderizadas', async () => {
     const { history } = RenderWithRouter(<AppProvider><Meals /></AppProvider>);
     const meals = await screen.findByTestId(testIdPageTitle);
     const section = await screen.findByTestId('meals-div');
@@ -90,7 +90,7 @@ describe('Testa o componente Header', () => {
     const { pathname } = history.location;
 
     waitFor(() => {
-      expect(pathname).toBe('/meals');
+      expect(pathname).toBe('/app-receitas/meals');
       expect(section.childElementCount).toEqual('12');
       expect(section.childElementCount).not.toBeGreaterThan('12');
       expect(section.childElementCount).not.toBeLessThan('12');
@@ -109,25 +109,25 @@ describe('Testa o componente Header', () => {
     waitFor(() => {
       excpect(recipeInTheDocument).toBeInTheDocument();
       userEvent.click(recipeInTheDocument);
-      expect(pathname).toBe('/drinks/15853');
+      expect(pathname).toBe('/app-receitas/drinks/15853');
     });
   });
   test('Testa as rotas do recipes', async () => {
     const { history } = RenderWithRouter(<App />);
     act(() => {
-      history.push('/meals');
+      history.push('/app-receitas/meals');
     });
     const title = screen.getByRole('heading', { level: 1, name: 'Meals' });
-    expect(history.location.pathname).toBe('/meals');
+    expect(history.location.pathname).toBe('/app-receitas/meals');
     expect(title).toBeInTheDocument();
   });
   test('Testa a rota de Drinks', async () => {
     const { history } = RenderWithRouter(<App />);
     act(() => {
-      history.push('/drinks');
+      history.push('/app-receitas/drinks');
     });
     const title = screen.getByRole('heading', { level: 1, name: 'Drinks' });
-    expect(history.location.pathname).toBe('/drinks');
+    expect(history.location.pathname).toBe('/app-receitas/drinks');
     expect(title).toBeInTheDocument();
   });
 });

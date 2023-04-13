@@ -82,7 +82,7 @@ function CardDetails(props) {
 
   const handleClick = () => {
     // localstorage
-    history.push('/done-recipes');
+    history.push('/app-receitas/done-recipes');
   };
 
   const isDisabled = () => {
@@ -186,8 +186,8 @@ function CardDetails(props) {
                 data-testid="start-recipe-btn"
                 className="start-finish-btn"
                 onClick={ () => (type === 'meals'
-                  ? (history.push(`/meals/${id}/in-progress`))
-                  : (history.push(`/drinks/${id}/in-progress`))) }
+                  ? (history.push(`/app-receitas/meals/${id}/in-progress`))
+                  : (history.push(`/app-receitas/drinks/${id}/in-progress`))) }
               >
                 {startBtn}
                 {' '}

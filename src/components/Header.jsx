@@ -13,7 +13,7 @@ function Header({ title }) {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push('/profile');
+    history.push('/app-receitas/profile');
   };
 
   const handleBtnClick = () => {
@@ -61,9 +61,9 @@ function Header({ title }) {
         </div>
       </header>
       <h1 className="page-tittle" data-testid="page-title">{title}</h1>
-      {history.location.pathname === '/meals'
+      {history.location.pathname === '/app-receitas/meals'
         && <h2 className="knife"><GiKnifeFork /></h2>}
-      {history.location.pathname === '/drinks'
+      {history.location.pathname === '/app-receitas/drinks'
         && <h2 className="knife"><BiDrink /></h2>}
     </div>
   );

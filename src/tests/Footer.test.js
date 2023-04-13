@@ -18,19 +18,19 @@ describe('Testa o componente Footer', () => {
     expect(mealIcon).toBeInTheDocument();
     expect(drinkIcon).toBeInTheDocument();
   });
-  test('se ao clicar no botão Drinks, é redirecionado para a rota "/drinks"', () => {
+  test('se ao clicar no botão Drinks, é redirecionado para a rota "/app-receitas/drinks"', () => {
     const { history } = RenderWithRouter(<AppProvider><Meals /></AppProvider>);
 
     const drinkIcon = screen.getByTestId('drinks-bottom-btn');
     userEvent.click(drinkIcon);
     const { pathname } = history.location;
-    expect(pathname).toBe('/drinks');
+    expect(pathname).toBe('/app-receitas/drinks');
   });
-  test('se ao clicar no botão Meals, é redirecionado para a rota "/meals"', () => {
+  test('se ao clicar no botão Meals, é redirecionado para a rota "/app-receitas/meals"', () => {
     const { history } = RenderWithRouter(<AppProvider><Drinks /></AppProvider>);
     const mealIcon = screen.getByTestId('meals-bottom-btn');
     userEvent.click(mealIcon);
     const { pathname } = history.location;
-    expect(pathname).toBe('/meals');
+    expect(pathname).toBe('/app-receitas/meals');
   });
 });

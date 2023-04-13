@@ -13,16 +13,20 @@ import RecipeInProgress from './pages/RecipeInProgress';
 function App() {
   return (
     <AppProvider>
-      <Route exact path="/" component={ Login } />
-      <Route path="/meals" component={ Recipes } />
-      <Route exact path="/drinks" component={ Recipes } />
-      <Route exact path="/drinks/:id" component={ RecipeDetails } />
-      <Route exact path="/meals/:id" component={ RecipeDetails } />
-      <Route exact path="/drinks/:id/in-progress" component={ RecipeInProgress } />
-      <Route exact path="/meals/:id/in-progress" component={ RecipeInProgress } />
-      <Route path="/profile" component={ Profile } />
-      <Route path="/done-recipes" component={ DoneRecipes } />
-      <Route path="/favorite-recipes" component={ FavoriteRecipes } />
+      <Route exact path="/app-receitas" component={ Login } />
+      <Route path="/app-receitas/meals" component={ Recipes } />
+      <Route exact path="/app-receitas/drinks" component={ Recipes } />
+      <Route exact path="/app-receitas/drinks/:id" component={ RecipeDetails } />
+      <Route exact path="/app-receitas/meals/:id" component={ RecipeDetails } />
+      <Route exact path="/app-receitas/drinks/:id/in-progress" component={ RecipeInProgress } />
+      <Route
+        exact
+        path="/app-receitas/meals/:id/in-progress"
+        component={ RecipeInProgress }
+      />
+      <Route path="/app-receitas/profile" component={ Profile } />
+      <Route path="/app-receitas/done-recipes" component={ DoneRecipes } />
+      <Route path="/app-receitas/favorite-recipes" component={ FavoriteRecipes } />
     </AppProvider>
   );
 }

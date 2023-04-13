@@ -46,7 +46,7 @@ describe('Testando se no componente Login...', () => {
     userEvent.click(favBtn);
     const { pathname } = history.location;
 
-    waitFor(() => expect(pathname).toBe('/favorite-recipes'));
+    waitFor(() => expect(pathname).toBe('/app-receitas/favorite-recipes'));
   });
 
   test('rota do botão de Done Recipes', () => {
@@ -55,7 +55,7 @@ describe('Testando se no componente Login...', () => {
     userEvent.click(doneBtn);
     const { pathname } = history.location;
 
-    waitFor(() => expect(pathname).toBe('/done-recipes'));
+    waitFor(() => expect(pathname).toBe('/app-receitas/done-recipes'));
   });
 
   test('rota do botão de Logout', () => {
