@@ -16,7 +16,9 @@ Foi desenvolvido em grupo, utilizando metodologias ágeis (scrum e kanban), como
 - [APIs](#gear-apis)
 - [Instalação](#instalando-o-projeto-localmente)
   - [Executando testes](#executando-os-testes-de-cobertura)
+- [Requisitos do projeto](#requisitos-do-projeto)
 - [Status de desenvolvimento](#status-de-desenvolvimento)
+  - [Desafios de desenvolvimento](#desafios-de-desenvolvimento)
 - [Desenvolvedores](#desenvolvedores)
 - [Agradecimentos](#agradecimentos)
 
@@ -362,10 +364,13 @@ Utilizamos o quadro Kanban no Trello para acompanhar o andamento do trabalho em 
 
 ## Status de desenvolvimento
 
-O projeto foi entregue dentro do esperado, no entanto ainda carece de algumas melhorias na estilização e apresenta bug no botão para iniciar/finalizar receitas que precisará ser refatorado.
+O projeto foi entregue dentro do esperado, no entanto ainda carece de algumas melhorias na estilização e algumas funcionalidades podem ser aperfeiçoadas como: o botão finalizar receitas estar disponível somente quando todos os checks de ingredientes forem marcados; manter o estado do progresso do progresso caso volte para a mesma receita;
 
 Além disso, os requisitos avaliativos exigia que o menu inferior estivesse presente apenas na tela principal de receitas. No entanto, sua presença é útil nas demais telas, para facilitar o retorno do usuário à busca de receita, e essa funcionalidade ainda precisa ser implementada.
 
+### Desafios de desenvolvimento
+
+Ficou a cargo do grupo definir as prioridades de desenvolvimento dos requisitos, exigindo que soubéssemos analisar a aplicação como um todo, suas diferentes telas e componentes, e prever possíveis conflitos e/ou reaproveitamento de componentes. No entanto, ainda sim enfrentamos algumas necessidades de refatoramento para garantir um código mais limpo.
 
 ## Desenvolvedores
 
