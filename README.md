@@ -10,12 +10,15 @@ Foi desenvolvido em grupo, utilizando metodologias ágeis (scrum e kanban), como
   - [Prazo de realização](#prazo-de-realização)
   - [Funcionalidades](#funcionalidades)
   - [Demo](#demo)
-- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)  
+  - [Front-end](#front-end)  
+  - [Testes](#testes)  
+- [APIs](#gear-apis)
 - [Instalação](#instalando-o-projeto-localmente)
   - [Executando testes](#executando-os-testes-de-cobertura)
-- [APIs](#apis-gear)
-- [Status de desenvolvimetno](#status-de-desenvolvimento)
+- [Status de desenvolvimento](#status-de-desenvolvimento)
 - [Desenvolvedores](#desenvolvedores)
+- [Agradecimentos](#agradecimentos)
 
 
 <br/>
@@ -26,9 +29,9 @@ Foi desenvolvido em grupo, utilizando metodologias ágeis (scrum e kanban), como
 
 O nosso desafio nesse projeto foi desenvolver a interface em React js de um sistema que permite visualizar, buscar, filtrar, favoritar, compartilhar e acompanhar o processo de preparação de receitas e drinks. A base de dados são 2 APIs distintas, uma para comidas e outra para bebidas.
 
-## Prazo de realização
+## Período de realização
 
-A sprint foi de 9 dias dedicados.
+A sprint foi de 9 dias dedicados, em dez/2022.
 
 ## Funcionalidades
 
@@ -43,14 +46,16 @@ A sprint foi de 9 dias dedicados.
 ## Demo
 > *Screenshot em breve*
 
-Sugestão de uso opcional para estilização: [Protótipo no Figma](https://www.figma.com/file/9WXNFMewKRBC5ZawU1EXYG/%5BProjeto%5D%5BFrontend%5D-Recipes-App?node-id=0%3A1&t=flL48tUQI6vmnPEY-1)
+Sugestão de uso opcional para estilização: 
+<a href="https://www.figma.com/file/9WXNFMewKRBC5ZawU1EXYG/%5BProjeto%5D%5BFrontend%5D-Recipes-App?node-id=0%3A1&t=flL48tUQI6vmnPEY-1" target="_blank">Protótipo no Figma</a>
 
-Deploy: [https://ligiabicalho.github.io/app-receitas/](https://ligiabicalho.github.io/app-receitas/)
+Deploy: <a href="https://ligiabicalho.github.io/app-receitas/" target="_blank">https://ligiabicalho.github.io/app-receitas/</a>
 
 <p align="right"><a href="#sparkles-projeto-app-de-receitas">(De volta ao topo)</a></p>
 
 ## Tecnologias utilizadas
 
+### Front-end
 - HTML
 - CSS
 - JavaScript
@@ -58,128 +63,103 @@ Deploy: [https://ligiabicalho.github.io/app-receitas/](https://ligiabicalho.gith
 - React Router
 - React Hooks
 - Context API
-  ### Testes
-  - Jest
-  - React Testing Library
+- Biblioteca clipboard-copy
+### Testes
+- Jest
+- React Testing Library
 
-## Instalando o projeto localmente
-
-Para instalar o projeto localmente, siga os seguintes passos:
-
-1. Clone o repositório
-```
-git clone git@github.com:ligiabicalho/app-receitas.git
-```
-2. Entre na pasta do projeto
-```
-cd app-receitas
-```
-3. Instale as dependências
-```
- npm install
-```
-4. Inicie o servidor local
-```
- npm start
-```
-## Executando os testes de cobertura
-É possível verificar o percentual da cobertura de testes com o comando 
-```
-npm run test-coverage
-```
-
-<p align="right"><a href="#sparkles-projeto-app-de-receitas">(De volta ao topo)</a></p>
-
-## APIs :gear:
+## :gear: APIs
 
 As requisições foram feitas  utilizando apenas o `fetch`, orientação dada para evitar conflitos com a avaliação dos requisitos.
 
 * <details><summary><b> TheMealDB API</b></summary>
 
-    O [TheMealDB](https://www.themealdb.com/) é um banco de dados aberto, mantido pela comunidade, com receitas e ingredientes de todo o mundo.
+    O [The Meal DB](https://www.themealdb.com/) é um banco de dados aberto, mantido pela comunidade, com receitas e ingredientes de todo o mundo.
 
-    Os end-points são bastante ricos, você pode [vê-los aqui](https://www.themealdb.com/api.php)
+    Os end-points são bastante ricos, você pode
+    [vê-los aqui](https://www.themealdb.com/api.php).
 
     O modelo de resposta para uma `meal` é o seguinte:
-      <details><summary><b>Ver modelo de resposta para uma meal</b></summary>
-      
-      ```
-        {
-          "meals":[
-            {
-              "idMeal":"52882",
-              "strMeal":"Three Fish Pie",
-              "strDrinkAlternate":null,
-              "strCategory":"Seafood",
-              "strArea":"British",
-              "strInstructions":"Preheat the oven to 200C\/400F\/Gas 6 (180C fan).\r\nPut the potatoes into a saucepan of cold salted water. Bring up to the boil and simmer until completely tender. Drain well and then mash with the butter and milk. Add pepper and taste to check the seasoning. Add salt and more pepper if necessary.\r\nFor the fish filling, melt the butter in a saucepan, add the leeks and stir over the heat. Cover with a lid and simmer gently for 10 minutes, or until soft. Measure the flour into a small bowl. Add the wine and whisk together until smooth.\r\nAdd the milk to the leeks, bring to the boil and then add the wine mixture. Stir briskly until thickened. Season and add the parsley and fish. Stir over the heat for two minutes, then spoon into an ovenproof casserole. Scatter over the eggs. Allow to cool until firm.\r\nSpoon the mashed potatoes over the fish mixture and mark with a fork. Sprinkle with cheese.\r\nBake for 30-40 minutes, or until lightly golden-brown on top and bubbling around the edges.",
-              "strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/spswqs1511558697.jpg",
-              "strTags":"Fish,Seafood,Dairy,Pie",
-              "strYoutube":"https:\/\/www.youtube.com\/watch?v=Ds1Jb8H5Sg8",
-              "strIngredient1":"Potatoes",
-              "strIngredient2":"Butter",
-              "strIngredient3":"Milk",
-              "strIngredient4":"Gruy\u00e8re",
-              "strIngredient5":"Butter",
-              "strIngredient6":"Leek",
-              "strIngredient7":"Plain Flour",
-              "strIngredient8":"White Wine",
-              "strIngredient9":"Milk",
-              "strIngredient10":"Parsley",
-              "strIngredient11":"Salmon",
-              "strIngredient12":"Haddock",
-              "strIngredient13":"Smoked Haddock",
-              "strIngredient14":"Eggs",
-              "strIngredient15":"",
-              "strIngredient16":"",
-              "strIngredient17":"",
-              "strIngredient18":"",
-              "strIngredient19":"",
-              "strIngredient20":"",
-              "strMeasure1":"1kg",
-              "strMeasure2":"Knob",
-              "strMeasure3":"Dash",
-              "strMeasure4":"50g",
-              "strMeasure5":"75g",
-              "strMeasure6":"2 sliced",
-              "strMeasure7":"75g",
-              "strMeasure8":"150ml",
-              "strMeasure9":"568ml",
-              "strMeasure10":"2 tbs chopped",
-              "strMeasure11":"250g",
-              "strMeasure12":"250g",
-              "strMeasure13":"250g",
-              "strMeasure14":"6",
-              "strMeasure15":"",
-              "strMeasure16":"",
-              "strMeasure17":"",
-              "strMeasure18":"",
-              "strMeasure19":"",
-              "strMeasure20":"",
-              "strSource":"https:\/\/www.bbc.co.uk\/food\/recipes\/three_fish_pie_58875",
-              "dateModified":null
-            }
-          ]
-        }
-      ```
-      </details>
+      <details>
+      <summary><b>Ver modelo de resposta para uma meal</b></summary>
+    ```json
+      {
+        "meals":[
+          {
+            "idMeal":"52882",
+            "strMeal":"Three Fish Pie",
+            "strDrinkAlternate":null,
+            "strCategory":"Seafood",
+            "strArea":"British",
+            "strInstructions":"Preheat the oven to 200C\/400F\/Gas 6 (180C fan).\r\nPut the potatoes into a saucepan of cold salted water. Bring up to the boil and simmer until completely tender. Drain well and then mash with the butter and milk. Add pepper and taste to check the seasoning. Add salt and more pepper if necessary.\r\nFor the fish filling, melt the butter in a saucepan, add the leeks and stir over the heat. Cover with a lid and simmer gently for 10 minutes, or until soft. Measure the flour into a small bowl. Add the wine and whisk together until smooth.\r\nAdd the milk to the leeks, bring to the boil and then add the wine mixture. Stir briskly until thickened. Season and add the parsley and fish. Stir over the heat for two minutes, then spoon into an ovenproof casserole. Scatter over the eggs. Allow to cool until firm.\r\nSpoon the mashed potatoes over the fish mixture and mark with a fork. Sprinkle with cheese.\r\nBake for 30-40 minutes, or until lightly golden-brown on top and bubbling around the edges.",
+            "strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/spswqs1511558697.jpg",
+            "strTags":"Fish,Seafood,Dairy,Pie",
+            "strYoutube":"https:\/\/www.youtube.com\/watch?v=Ds1Jb8H5Sg8",
+            "strIngredient1":"Potatoes",
+            "strIngredient2":"Butter",
+            "strIngredient3":"Milk",
+            "strIngredient4":"Gruy\u00e8re",
+            "strIngredient5":"Butter",
+            "strIngredient6":"Leek",
+            "strIngredient7":"Plain Flour",
+            "strIngredient8":"White Wine",
+            "strIngredient9":"Milk",
+            "strIngredient10":"Parsley",
+            "strIngredient11":"Salmon",
+            "strIngredient12":"Haddock",
+            "strIngredient13":"Smoked Haddock",
+            "strIngredient14":"Eggs",
+            "strIngredient15":"",
+            "strIngredient16":"",
+            "strIngredient17":"",
+            "strIngredient18":"",
+            "strIngredient19":"",
+            "strIngredient20":"",
+            "strMeasure1":"1kg",
+            "strMeasure2":"Knob",
+            "strMeasure3":"Dash",
+            "strMeasure4":"50g",
+            "strMeasure5":"75g",
+            "strMeasure6":"2 sliced",
+            "strMeasure7":"75g",
+            "strMeasure8":"150ml",
+            "strMeasure9":"568ml",
+            "strMeasure10":"2 tbs chopped",
+            "strMeasure11":"250g",
+            "strMeasure12":"250g",
+            "strMeasure13":"250g",
+            "strMeasure14":"6",
+            "strMeasure15":"",
+            "strMeasure16":"",
+            "strMeasure17":"",
+            "strMeasure18":"",
+            "strMeasure19":"",
+            "strMeasure20":"",
+            "strSource":"https:\/\/www.bbc.co.uk\/food\/recipes\/three_fish_pie_58875",
+            "dateModified":null
+          }
+        ]
+      }
+    ```
+  </details>
     
-      Os ingredientes seguem uma ordem lógica onde o nome dele (<code>strIngredient1</code>) e a quantidade (<code>strMeasure1</code>) tem o mesmo número no final (1, nesse caso).
+  Os ingredientes seguem uma ordem lógica onde o nome dele (<code>strIngredient1</code>) e a quantidade (<code>strMeasure1</code>) tem o mesmo número no final (1, nesse caso).
 
-      É possível listar todas as `categorias`, `nacionalidades` (vindas da API como "areas") e `ingredientes`:
+  É possível listar todas as `categorias`, `nacionalidades` (vindas da API como "areas") e `ingredientes`:
+  ```json
+  categorias: https://www.themealdb.com/api/json/v1/1/list.php?c=list
+  nacionalidades: https://www.themealdb.com/api/json/v1/1/list.php?a=list
+  ingredientes: https://www.themealdb.com/api/json/v1/1/list.php?i=list
+  ```
 
-      categorias: https://www.themealdb.com/api/json/v1/1/list.php?c=list
-      nacionalidades: https://www.themealdb.com/api/json/v1/1/list.php?a=list
-      ingredientes: https://www.themealdb.com/api/json/v1/1/list.php?i=list
+  As fotos dos ingredientes vêm de um end-point padronizado com a seguinte lógica:
+  ```
+  https://www.themealdb.com/images/ingredients/${nome-do-ingrediente}-Small.png  
 
-      As fotos dos ingredientes vêm de um end-point padronizado com a seguinte lógica:
-
-      https://www.themealdb.com/images/ingredients/${nome-do-ingrediente}-Small.png  
-
-      Exemplo com "Lime":
-      https://www.themealdb.com/images/ingredients/Lime-Small.png
-
-    </details>
+  // Exemplo com "Lime":
+  https://www.themealdb.com/images/ingredients/Lime-Small.png
+  ```
+  </details>
 
 * <details><summary><b> The CocktailDB API</b></summary>
     Bem similar (inclusive mantida pela mesma entidade) a TheMealDB API, só que focado em drinks.
@@ -190,7 +170,7 @@ As requisições foram feitas  utilizando apenas o `fetch`, orientação dada pa
 
     <details><summary><b>Ver modelo de resposta para drinks</b></summary>
 
-    ```
+    ```json
       {
         "drinks":[
             {
@@ -258,6 +238,35 @@ As requisições foram feitas  utilizando apenas o `fetch`, orientação dada pa
   </details>
 
   <p align="right"><a href="#sparkles-projeto-app-de-receitas">(De volta ao topo)</a></p>
+
+## Instalando o projeto localmente
+
+Para instalar o projeto localmente, siga os seguintes passos:
+
+1. Clone o repositório
+```sh
+git clone git@github.com:ligiabicalho/app-receitas.git
+```
+2. Entre na pasta do projeto
+```sh
+cd app-receitas
+```
+3. Instale as dependências
+```sh
+ npm install
+```
+4. Inicie o servidor local
+```sh
+ npm start
+```
+- ### Executando os testes de cobertura
+É possível verificar o percentual da cobertura de testes com o comando 
+```sh
+npm run test-coverage
+```
+
+<p align="right"><a href="#sparkles-projeto-app-de-receitas">(De volta ao topo)</a></p>
+
 
 ## Requisitos do projeto
 > *Clique na seta para ver a lista de requisitos que recebemos para desenvolver durante o processo avaliativo.*
@@ -363,45 +372,45 @@ Além disso, os requisitos avaliativos exigia que o menu inferior estivesse pres
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/ligiabicalho">
+      <a href="https://github.com/ligiabicalho" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/108960742" width="100px" alt="Ligia Bicalho"/>
       </a>
-      <a href="https://linkedin.com/in/ligiabicalho">
+      <a href="https://linkedin.com/in/ligiabicalho" target="_blank">
         <p>:information_source: Lígia Bicalho</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/victorAssuncaoReis">
+      <a href="https://github.com/victorAssuncaoReis" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/108594533?v=4" width="100px" alt="Victor Reis"/>
         <p>Victor Reis</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/kadu2229">
+      <a href="https://github.com/kadu2229" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/91919611?v=4" width="100px" alt="Carlos Eduardo"/>
         <p>Carlos Eduardo</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/sahdibernardi">
+      <a href="https://github.com/sahdibernardi" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/108948808?v=4" width="100px" alt="Sahra Di Bernardi"/>
         <p>Sahra Di Bernardi</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/marcelsguima">
+      <a href="https://github.com/marcelsguima" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/106491497?v=4" width="100px" alt="Marcel Guimarães"/>
         <p>Marcel Guimarães</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/PauloVitorMartins">
+      <a href="https://github.com/PauloVitorMartins" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/109085421?v=4" width="100px" alt="Paulo Vitor Martins"/>
         <p>Paulo Vitor Martins</p>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/trybe-tech-ops">
+      <a href="https://github.com/trybe-tech-ops" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/82593112?v=4" width="100px" alt="Trybe"/>
         <p>Trybe</p>
       </a>
